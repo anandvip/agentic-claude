@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<!--
+  DESIGN GUIDELINES · as given by Vipul Anand (Roger), listed by date
+  Kept here so every agent or person who edits this page follows the same rules.
+
+  STANDING PREFERENCES (account profile; undated)
+  · Ask clarifying questions that bring clarity before acting; don't guess.
+  · Pages are drafted together as a learning process: enthusiastic flow, professional tone, organised structure.
+  · Humble and polite; help recall with short recall questions.
+
+  ON RECORD 22 AUG 2026 (date saved to memory; the original conversation date is not available here)
+  · Single-file, offline-first tools in vanilla HTML/CSS/JS; localStorage where state is needed.
+  · Deploy on Netlify. No frameworks, no CDN.
+  · Analytics-free by default (see 30 Oct 2026 for this page's exception).
+  · Benevolent Farms brand palette "Ashram earth": deep indigo, ochre, sandalwood (for benf.in and brand work).
+
+  HOUSE STYLE OBSERVED IN OWN REPOS, AUG–SEP 2026 (fuel.vipulanand.in, kvk.vipulanand.in)
+  · Observed practice rather than instructions, followed here for consistency.
+  · One subdomain per project on vipulanand.in, set via CNAME.
+  · Warm-neutral palette with clay accent; embedded Fraunces headings; hairline tables.
+  · Full SEO head: canonical, Open Graph, JSON-LD.
+
+  30 OCT 2026, 10:48 IST
+  · All links open in a new tab.
+  · "link fixed" / "link revised" pills throughout the consolidation and the documentation.
+  · Use asides, so the document reads as thoughtfully built when shared with officers.
+  · SEO done properly; Microsoft Clarity planned for granular tracking.
+  · This is the baseline document, open for agents to build the crop-assessment and policy-critique platform on.
+  · Step back and recheck every link; fix wrong ones.
+  · Document the sources that yielded and those that didn't.
+  · Personal queries stay off this page.
+
+  30 OCT 2026, 11:10 IST
+  · Subdomain ethanol.vipulanand.in.
+  · Push README.md first, then index.html.
+  · Clarity as a switched-off placeholder.
+  · The agentic-team repo is public.
+
+  30 OCT 2026, 11:39 IST
+  · Every abbreviation shows a tooltip bubble with its full form on interaction (hover, tap or keyboard).
+  · The full form can be copied for further research by the user or officer.
+  · A glossary of all abbreviations sits at the end of the page.
+  · Keep this dated list of guidelines as a comment in index.html.
+
+  30 OCT 2026, afternoon IST (from the ethanol thread, applied here)
+  · Mark sections researched or revised by Grok Bot with a "Grokcos" pill, so Vipul can compare
+    and question each tool's version.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building a Chief of Staff and an Agentic Team on Claude — Step-by-Step Guide (Oct 2026)</title>
+<meta name="description" content="A fact-checked, step-by-step guide to a Chief of Staff agent and a small team of specialist agents on Claude: charter, Projects, memory, skills, connectors, scheduled briefs, subagents, handoffs, approval rules, troubleshooting and usage — checked against Anthropic's help centre on 30 Oct 2026.">
+<meta name="keywords" content="Claude chief of staff agent, agentic team, Claude Projects, Claude memory, Claude Skills, MCP connectors, Claude Cowork scheduled tasks, Claude Code subagents, agent teams, Claude Agent SDK, human approval, prompt injection">
+<meta name="author" content="Vipul Anand">
+<meta name="robots" content="index, follow, max-snippet:-1">
+<meta name="theme-color" content="#2E2C27">
+<link rel="canonical" href="https://anandvip.github.io/agentic-claude/">
+<link rel="alternate" hreflang="en-IN" href="https://anandvip.github.io/agentic-claude/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Vipul Anand — Guides">
+<meta property="og:title" content="Building a Chief of Staff and an Agentic Team on Claude (Oct 2026)">
+<meta property="og:description" content="Charter, Projects, memory, skills, connectors, scheduled briefs, specialists, approvals, escalation and review — in order, with plan requirements checked.">
+<meta property="og:url" content="https://anandvip.github.io/agentic-claude/">
+<meta property="og:locale" content="en_IN">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Building a Chief of Staff and an Agentic Team on Claude">
+<meta name="twitter:description" content="A fact-checked step-by-step guide with copy-paste charter, task card, approval rule and weekly review.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232E2C27'/%3E%3Ctext x='50' y='68' font-size='48' text-anchor='middle' fill='%23C6613F' font-family='Georgia'%3ECS%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "HowTo", "name": "Build a Chief of Staff and an agentic team on Claude", "description": "A step-by-step, fact-checked guide to setting up a Chief of Staff agent and specialist agents on Claude with human approval guardrails.", "datePublished": "2026-10-30", "dateModified": "2026-10-30", "inLanguage": "en-IN", "url": "https://anandvip.github.io/agentic-claude/", "author": {"@type": "Person", "name": "Vipul Anand", "url": "https://vipulanand.in/"}, "isPartOf": {"@type": "CreativeWorkSeries", "name": "Crop Assessment — Policy Baseline"}, "step": [{"@type": "HowToStep", "position": 0, "name": "Pick the surfaces", "text": "Check which Claude features your plan includes: Projects, memory, connectors, skills, scheduled tasks, Research, Claude Code, subagents and the Agent SDK.", "url": "https://anandvip.github.io/agentic-claude/#s0"}, {"@type": "HowToStep", "position": 1, "name": "Write the charter", "text": "One page: role, owns, never, asks first, done means, when stuck, tone, time zone.", "url": "https://anandvip.github.io/agentic-claude/#s1"}, {"@type": "HowToStep", "position": 2, "name": "Map the work into lanes", "text": "Rhythm, Research, Build, Write, Verify, each with where it runs and its risk.", "url": "https://anandvip.github.io/agentic-claude/#s2"}, {"@type": "HowToStep", "position": 3, "name": "Create the Chief of Staff Project", "text": "New project, paste the charter as project instructions, add reference files, one project per domain.", "url": "https://anandvip.github.io/agentic-claude/#s3"}, {"@type": "HowToStep", "position": 4, "name": "Set memory deliberately", "text": "Use project memory; turn off 'Use account memory' for personal and financial projects; review topics monthly.", "url": "https://anandvip.github.io/agentic-claude/#s4"}, {"@type": "HowToStep", "position": 5, "name": "Connect only needed tools", "text": "Calendar, Gmail, Drive first; keep approval prompts on for send, share and delete.", "url": "https://anandvip.github.io/agentic-claude/#s5"}, {"@type": "HowToStep", "position": 6, "name": "Turn routines into skills", "text": "Enable code execution, write a SKILL.md, upload under Customize > Skills.", "url": "https://anandvip.github.io/agentic-claude/#s6"}, {"@type": "HowToStep", "position": 7, "name": "Schedule the cadence", "text": "Paid plans: morning brief, evening list, weekly review as scheduled tasks that never send.", "url": "https://anandvip.github.io/agentic-claude/#s7"}, {"@type": "HowToStep", "position": 8, "name": "Add specialists one at a time", "text": "Separate projects, Claude Code subagents, or experimental agent teams.", "url": "https://anandvip.github.io/agentic-claude/#s8"}, {"@type": "HowToStep", "position": 9, "name": "Define handoffs and approvals", "text": "Task card, handoff note, and a green/amber/red approval rule.", "url": "https://anandvip.github.io/agentic-claude/#s9"}, {"@type": "HowToStep", "position": 10, "name": "Handle a lead that hits a wall", "text": "Troubleshooting table and a five-rung escalation ladder.", "url": "https://anandvip.github.io/agentic-claude/#s10"}, {"@type": "HowToStep", "position": 11, "name": "Watch cost and usage", "text": "Five-hour and weekly limits shared across chat and Claude Code.", "url": "https://anandvip.github.io/agentic-claude/#s11"}, {"@type": "HowToStep", "position": 12, "name": "Review weekly and prune", "text": "Keep, fix or delete each routine using a checklist.", "url": "https://anandvip.github.io/agentic-claude/#s12"}]}
+</script>
+<!--
+  Microsoft Clarity — PLACEHOLDER, switched OFF.
+  To enable: replace YOUR_CLARITY_ID with the project ID from clarity.microsoft.com,
+  then remove the surrounding comment markers. This loads an external script, so the page
+  stops being third-party-free once enabled.
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","YOUR_CLARITY_ID");</script>
+-->
+<style>
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:600;font-display:swap;
+  src:url(data:font/woff2;base64,d09GMgABAAAAAEawAA8AAAAAjegAAEZNAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG55YHIEoBmA/U1RBVIEUAIROEQgKgdlsgbFRC4NsAAE2AiQDh1IEIAWGBgeGZQwHG9h2JezYi+JxAHkwkVGUzdVoFGWU01z8/9cEKYcUxaWF/fYioiGykDOLrLWzDvLdJ6tJC8uyHmRTgrNoT8kTVtcWXTXxr/+FSa68fJrnU9ICI3aE3jF7+EN30nHrv4pwRemQ/q/NERUeobFPcnmA1+u/c28meXT1xd5wBXj77baGXRHlTIZgmx1gNEiUIKhYqIiBjVIhoKBgFCJGzUisnrp25lqX6aJd1W8/Xfzil/37/+1/PPy3H//bx+a+/n8XU/DVvRSIlETIpEysRNE75Qf+xzF/Qx7ITBtk57+CFtH9DnUtWVPY1ezavKjfOrLBxPiiSDCh5929v4VZCyNJXC4AAnD4d9NK59VzpWfCtTMrPZNIRSfGTKD5SX7htykxyNoLcaCCWdWTvJkM06kZIcQg4l65Jnrt3M/2y0eFzT/w5c6RcwtpWS1qvG2kOI1iElfV+vbT0Oe9C7kIF6UTS+CIXXjs7ItGRxWqQla4Dp5bNeFQ691s//912te+52dP7EFrib1zcjIzC9znfy69wOV2W24lXUnP0pOU2JaziayEh+yBJE7O/IwzEMmTjOzAJyRnMMlSsgRUIbREFZXL3XblNiUQFG2z8P//903/69RMeyX08YIlkEiA/zfMyx9g40TDTCkEFnAm2TI1FiG5pTMMkVdOu8fvrqGqHzSy1KhH1C/+ojfGmBIOkznIPsZmC9xn2Khgw3HQ7vkUAJVoAkHHjj8B4rB1VSxAHJgBlIecLesiAWJ1IMKdzECBvNqVbEArrxhsXH2wchod1Zgw2Lnq+6mMV3YsQokIkp7aQY4HdUOqz0YLDGhueus0hur5Fz/unpKNJpUgyTHyeDAgrAWRgmyd9vYBKCEaS6iHRlmD2Gu44EjBGM0jiIRDbNXlIwHDoyzsEoJyidqahSeQBPT8B/AtByl+GsBINU5Qa8acSnW60aQeFFEQXRLcyFOC3K2cBAF9DCkc/KEHkEPvBJ7t82lU5kORt8V7YB0JGjrQkcoYpr4d6Kn3T8g5qC/KOhMQCYR3KMEJDJp2MJTJ6JlE966gq0HVOuT0h6TUySIEUxqbRcZVFi+dN4iMJJWEI52QkIr20u6WgNgj+sl/qDpZEALPLFsQZkNQxA7KlUUjd9MRLS7he5CpJbjGYzDmUdDQDACaxUatOLtHQsw8TIipssTE0eI8GLNaFgR9xQlLHZnnyt9ZDL3yC7AsIvYCLQe8ei+Oq4Fz8Bq9Gr0Rhn/RjZZoPtyi8xajeFwrVRdBY68RvZMY6NSZmZRl8EXYKQNT+hRJyEj7AVSMFcucPGh3oROsgk5KAQBqvqWB8baDUFMyKwxq1PVes9FZ5axpf6lE05cg9DHwMopXIZ05LrCGACW9lqZO4o7VsBy6F4PB0WpTl5cCUyN5blpyk/xDlRveZxCF25BeDunWC8Ebn6aXixjNpI2PYWyci7/MClrDpXMIU6mRBZio348iFUEuFl+5CkLb3SB201dFoGRgYCyYMQNhzhxrWzWsWWPDtm13t3j2ECAcgUECgQIGDQQGO1gQcAMreASqSwTnhD0SaGTMOVtrFC6gXEFysw5o3FnzwIznAMuLdw6dX5sBoPxxxgQqwJoJFMRGMHAsaylEKFthUIRjKwKMSJxEWRIuIUciCMTgSCCQgiPrkgMoR4+zAFjajoUdFmanXSB2W5g9plk4OIA55FSX084tnneJlcvA3hXMXQXqmrV23Q1Qv4F0c2DmlrnE3/GA56En9qlXzLz2/t8PPrP0xVe2oFRRlIu3Z1kwZ4Ura2/PBgEsAs4cJkhwiFh23YRQQpTial3XHeQogiwddEBhhnrHlgtmXKFwA42GA3fseADhCZwXZN7YouPABzu+OPBbtsPgDxrpAi9hZC2sILKRt2zkJA95Ci+qSKJ2STEW/pBkux3M7dRXWkSdfeWjzB1zyjkOrzJzLYrV+AWQqEDxOxC3sTULxFzXNq6ydGaDFyBeAgevXu1iLMi3NiBozAA1jlhvkW6tKkC+I4NsEjzS2W9agUPCxu13kaIUKVUGonSDTN5uKNhNRRtXAtixR8r2gTTIgopk20NdOBG+Xb4EXyOGFztRJO65T4Wc/YANxUEg1kXU8Zn/bgjbe7520D5cuy7HAycRP4Fu3eQ0E/RPNRFCjFs5GwIoayIaC8y2AulA3T0Nna9AkV4yo2ghw0zMeXCGh2TnNihvvyvn4VbE1RyY7W0WIh4gIBmzwuaYdHxDkDb3TsAtuOj4tMDkGe/3JLABMNnLbN6XQMDzqNcxlpNnOQAV3VMPhOsAyctTB+gMBuKeDTQ7/bocCrpjZzRDATDnqz2gUJADG1wxCgFdMOPsmMLANu01+yiOGQEmEitQZqCh3RXbiR1EFVaLW520IuiZq4wL8X/JczQq5A21TUtrHSqOkQTQrEMcNOPg/k2RygyJv3AcKbLka/bLFhCaeCTP5t28X5CkkJR3vkwlUp2prlQPahA1giqgbu3S1RXpivkF6IwpAlcqvQKr31Gh5gAsWXiJiqeSHlAgNfxtbACQjwN5DiAfBIqXisb/M/8fB4pPFAPfTwb4/tOU3O9bx333xUP+t+u/3QIiCrAQsBqw2TIgzDTWhckTY3zvKv5ZEsSo0KZDr0jl4qnlqsWTikuHT6BJo2Zs2TSSJKiWaZQHT1680fli8McUIFAwlhChwoSLkCiZVg0ojh7datTemTKwwjBf0ZKWM9FXv3jJyILBrFWL+pVDy4ej9Xv27T8wvf3g4UNHjh4/dsKjOeX3BYIh0u4L4Wgsrv6tWqnVG81Eq9Pu9gb94SiNkJfeeO2td94zueGjDz757ItrvtrhqjVWk5CSExGLBQHJc3UA/gcIvwChAejyAwD9XwCQZkBSDyCqYmrKQwsMRBgQHICiUicZEKhhxkCgGEalSJVMqKQ0M88VcFkcDybaEvFhgwJUyXgeiAZzA5vXQiTtqIxNqXVZ0QqX0nRzJpEz5tHA4dCh+UgtSUQ3jJnxgMdjnY+8Ug7R/a0rUZdf/lmKvU7jY4N/b0Ip08gk6v8+LH6apqev+H153aI9xWKJl0SW9cSRJ+sj4xD0XdcPQQ18QkLfdheCtSIU61oeRy8v8UfH7uxWzKly2fjFklokMeKlXlXgXj1Z/QptjOFK+Zdnm3V1Kwy/CJ6s0PLPhvPaZ1sHaWJDitL4VauP4MuLeGaYEoOHhxqAIHh8cBMEQhmhtoUpo+gU5evWqpmyzDBEhwCKHU1BbcrfcEP3zMsx1GnIW5kDQnGgm4gS8GL4D93DLdiLnou1WI2rFq5pwWUsVBE03SAVixgfrIjYlMSoArgsBMrvGciXQw1dvm+TFAz07nFzeFdprHc2+JM6qzQgT0MBVOVMzDOttD59IieNR1bymU+BKlukQGAj65mF/nlJwhSkhGl9PnujuC+ExPMuGD0bR3FaaF0IGdcaU0la5OTdHdcScFaSJD1iUXmtve/8MEt19RdtWyfVvpXhx63p5LstNCWEhBsZzzEZN5nsE9FwV+NWCK0ig9raOvLok5ShsN3M5c6nlHnEGT8tzLfwBpxmMrNss1GRcLgKbpdTGFX7NtYHF9TdkVZmXg8f2Ww4Do/13BovcLXlGxSHWnHGbAqHIIPrxTLUgiuyMX5ddvZUaJOE46iNhaf2vnEpieEj4RvcWgl8zaTtSFBnxEAYjr00bDZvF+u9VRw9VaN535X6hOefi+tt6NlwWoqfxWe6/5BwGewLfG/cnl9VvlbLHqcvZimsxSBsdGVRc47GdL8nMKiTl/GTmtuLuvUUpngaiJ1cvvwLWQ8kKpwsBvXIFgmwliYvgVXlbXNPQ7aIPAQzCMP03SXSdNwDXVdEBuozrOxwpyOWg60BB1Zo6ry1Mple9MmacP2nNCbyymNN8ZnQJP/Tb6LEMLK08GILxMWqUUHTuYeXQlR5O0KePvXT28TwWlKcf7e5cKf9JOCUDVGzwsyemUhBbG+nl1Clpisjh6VCSGfo+EkljT285bG8TmLdC95LXN7vLELVbWU0lmYBOkdvpuy3YkjQHv3AviJXEZt0VAHedD2Ju0NojBOYdj5QKSVGvDa+3SV5MJ3BQqUefBtMllo7BsxOc8rb4gQQ3V2sWnFOV/Wn848Kst1uGC0G20GhFKH85pQm3BwHk24NqaLpKoNuL6Oq+sRQHx0kcH4PhPEjDaeoGthNtfIzTqBJZ+e1dEfbQDD2Muuor/LYcB6IxO6gmtR2Er1q5FE19aevyhHj0meR08XB5QFyTWIGXIZPlAbKZiQnufIwjkEMVLdrDloW5IquTr6u1StC6n3kenU5FvXauZFaHwC5O2pneQ+DqzYxlvmKEufb5FZtdgcW4yqhvPC6mIULSqvG/X6fokGStACuNS5+l9hNsI7m+vflWfRAs7EFRUG7corMFDdAk0mi+bXDO7KGQDFGgJaMl3ylkgW3hm1N8jZtG81iAn2I+NoAyTCIqzyzQE1fNziaDFlUU/wQvc0QX2U2brRPIITvGRQH4Ql4JmzE0VTMypZtxMhnIyA1ZCzpdfZHulSr98Q3tqgC+CILFyKlZrthSCCqGqtmoo6/xW3y8vwlPwODCUnTJw8yLV6ODieJKeULBzBl04BJuPOZjjPhwq/7fDWu7T+wPCdtCdASVaCN6bYOUnfiqsmIkLmdb4qSGH3nkPVmczfORXTdIXXD3jfBmq24OZ8D9CfKk41hnmkUQTZSiada4DzdPJ0Fp5fRtJlJ4+TE6dlxAVXL67G3YtunsqfBoZnNC7OnTonBJebNnYz2wkb9aAw4iA0f2vPW533QnEmQiwHWTAMz0vAMxg00WxrLCFu3DxtHPqqc9HB7X1Oilj1UpCic2i4bBT90V6GsUu34Q62SXAzPxchh2cALSWVB/o0RUw4EZUPa0cM5cIAjY/IkWM4pAMIhQR7FGdYMDBci1G1YgPECfaKEgfpMeN6WRLXskoSt+NmWPTvSiXb7GRCyccRWjXvHsrO9BtnizXh9aIFN1eCt4/zAvr0Pit+tmwmcC6rMDlpJy96jnu/4vWs0Aj33p8Qngp47w6WaVu+M6WZ+a4W64HYu0D1b1dOuVeG0/O8uMHiuFqH2S7AIN+sDZTf8vZCy3+uulldPhvOl+axuSPKJ1tdarQMPw+VVWg6BGkPaos+aclm5Cpeae0dKV5g+Zw+KukbfOnM5t2F4GHdam3w3kF+Z/Uf3YS4NxHZomA0pdjPlUcWxddND4JPYvirOViYgSlCi6qGsBjD/OL39dR94p7inWM8YnxhFUQD5m7Qnkk9lF1gcdOCuhPwW+BBITMyqNDVfl4gCmgxcVI5HbJCpLxPrhxfZTwqkxduevBuX49OiJ5U5yWi2q6rE+aFT43u0o96PonvPAJnnXwj2Cf+DArAsaXqrCmFqG7RsDIX3Ui6YtmDW8VA+qlHW6CRjU1kDP88OTdGjeCAyuPK23c7pxzKRQCczuKdUumZpc+7A5en3uBNLuIxWnaCp4k7p5PO4FHdIuTTL0HFUiKlQtOvWBIH4F0YoF/cBR01ftvS8N2tjP+Nz0hYx2lwBQgxLEiUpW6fiNvN2z6M0bfWJSrUez1kmMkPcFxx8TnIxw9fvIisBS0aIDd7QgyskUsitLqAdUZSPHhUh5UV8WFnopKqyqAAHynJipu4dXG3D/Y3rSqSqz4g6gvYyYqZvDRmf9z6hzy5lRoKjwJj+1YsHi+lhXzXdSEuZaNoYB/SMSmz8FQJQEKdSqLalIqL/T1ybJJM+O319LERRXiM9kmWzrI4zjOT5d2hbPFijxSSmrXIyLm+DvXjStwTaPZDDnCq/mn3OtSRdYkdoq0vhLr8C2Iu7goKABcY5nl9/iag4RCKtUuqXR6/EjqSQ2fRyWFVIt0CqCKkOo9l7XIse0dA1fmUPW8oM3g3Qj5OTrZsRN0CYrE1DH6d9ad4WT51p+ilJstBh4Or8bAfD7CLG55o2FKYVWksTMvx6nGHPtSxTbQGHIBq7pcazA90l5FecdvDUD3auWYe6olkDgawDyk4HTcpPm0J43t6JnuEMbU7mXFM7pVSRPc0GSPy6nuZ1sYyy919ZZeCdwiqEg+7geMc7Ge/7zFnoKDiMmzfr8PNSr8+IgSxb61GA9PqXY1LTzYQWrbWIMUXMus4DeNg4iNnqR8B8T1OA8rYcLU3ci5il3lGHt+cENIkN4bRqU9UjYgQFqKAgFg0WYulJlIk/UYR2FQWAtnmZyJHTkctoSPGte29lfJmx1GEbrPF+4U/etXRx7lMmt7gQg8f85Gm4xpuyIWoGIUSVjFQPvXWLYLmfdjQFOqI2vCaa0LWhW5yITSOnlxyKxL7+zYugZhkT2BJNtvUc86vaH1fk1OANDoqnVLweG+pc1yRKep6dZ+jm+v9JSz4k5Dh9Vjq78r9Hh19Bu3XfFOL+P/4yPvyDWC6r+bpUs8ooqipu5UKQsvo3DZ0sml/nBhzyFysvUCrScIw59a6pKuUdg+CNwBT3Sw56M26r9W8rNFOpcuuI1wZmtvY00SzLpuJseKpf4hOtI8uMi09WBmRoZpyVZFXcMokmFQeWRV/ARj27jizliLy4JwoHbmnJuBKIXZdjq/J0302VTxb33VDwmbJKKYqeKmaqdjmVAzxfvpJGjFUuEVEYrZV5KM9t/QsoWbTMtDnszWsZcooRjwefRvuv1aONobBdyeQ+6RDZUMQvQ8Z+S3PZJ+MSWX22n3Te/DAziBBNaltdGk7dW7X/9ZZfE2jl23FlZhhFOuVAHJau6nRanRyA4qIav6YFE8gpKFMW38qV5q6HU8Bi6+sOHyoaQMSzrscREGct/5KCSt2CcqSQRCgpNsuO0ufxqCPGxaNMe3lc7bMUXKlLqOll2/ZKhXTcwWD/pGkxHQa0++FFUosaA2iv5Ts6ao5w9+ueRlYAfVn62bk01EgrHVpk2nvr+DVKKrYSwoXA0I6MhMZRuMqrzn3EtraJ28L4gBhA0UGfwJqkx4e1JqUeCfdL1DUgPYjsha6ONU0SE2na5k0rdX+SQhLrCbfDYhY1eMneIVL6mXB37s6kGfxoFIUDODiSOZTYNzFf0/P9yAoHj52twQYpHhhWWK24jShs6Rxsjck0FudqvCDA4KbkJ4ZfEuQPIIufBRm88LrUxI6kKLdcBPft9Rk7ohqVQms59FPg3sGV9zK6eDHXnM5RvZ3ANnNDmLVwuYxirDLCl2N39jPIeeUseRbLc81uwXAJrXrXLVXW/QoknA36zfg7t4YtVbU0BRyYLPOW/xSbDtsAHCubFVmTJUWkrXI/rOIb7/QJz/UoCyyGnbE/WdbiZtSQGWtIACza1KIIkVNjIyxpP/FWrdbTrU+Zj1GC6mc8Fnzee3MULKYHUpTRGzRJhmj7v94NurGUGcxWniECsDtltnCrB1Cfl/WzHINJ2jq9GJH59bYg2J8xsaInFOd+wkXUDGYqBlE4JZMa81q1EmPORyl3IMFi0Z5oZ8lqJKLEuJ1IHL6Dtz7HUdqs8a7e/7qIdV4JOaWF7NtGaOQaovSc8YYLHwnjYRNgN262cMYB1CcyjwVskfm16S/9bIJkZJoqeyxYynkggrIGSoaKVTRxNeMIVbiHzNkE0kZ76qSNaSzqA8h2bzybD090mHeYmlgVah1rgvcyboeaZH3bRzZHXINjWwllWZo6Tdpau3aXoMS+/9IeCkN2A8TeZqb3nGYdTNjUtZFLDw0pjGsz72mAMI5Z+p3mnMTlY7iGYXfqDEHXLZs8RPNWHiocjB8fxGxJ2r7evR/3Dw0CO8CoSxSk8t2QUzXt8CZj+Qjqe0EYd8Qfvj61iBoQFpZUQq9B3fEonqPdmki7fZd8rw9tdho/zPr98e93ilsbTXErZWyVZ+WGfYRtkrLJ/TPcoPMsctIsX24J6Hx8wsaoqNqWFOGTLSbgK0ZpTJpZzEmKSRxlB8TyyvZWrGVheLs2cGxzYw1gM3+zMf1X2N3CZD/CVmzuvsnwCFjeobpFDhuSgKXj72mpYSqzvNSGtZjz1AjKHAZulmL3AO6Lhv12ab/PdBISM0t9SZ3FoPJ6NqxYgxFAPkVbXwxFYeaoBylzGKRQ2z+M2o+lCWCYKufzLEBOC9WAxF3xQ+AwZB/lPMZjYqC7H0vH9ncPTHhgz1FIhyyMfXvrjWUr/khZ17zqlbZ1pHKLbfzn5AZeTFu6QblkOL40NTPgWmRhch2bXRFbt3Yh0DwuB6LYBYtqr4o758IPbpb8vjbHfv/5b6WLc5o8xJ4YwpJdBGSNKT8p15BTpd7Aqm0fGGYnJS+NKxqKuNFxoRE7u7C/a6Y5pHL9MejjpyDPz2Niooa1UM3ED/1ZCuqgf/Hds9XwyaM7vCSbnpdS5gZl3WcbS/4+skz2emD9WV1TdgIzNQQc+8iO9rcT6nqo8VtjvZKvilg+u7c9WuyXqj2MnaX8TXvS4eT8eL8Kn/9J21N+3l3ByeIGxiKDzBSBZeE7BQbflOaQxuUUdQe/MFEyhHLBtX9yI1HmFuprFgh5VucJLcdQHJbH03IXZgcpD/rnJhSku8fcL8E2L9XZLhPjMOcpto1hKm9LyM28GKqDJLESsWRMRk9+687yfTp2rc3PADQ7nVy3kQnzrH+xmIVqrxpqwtpfWN2pDLt1qwrsj579v2S4qMtT4YElLt5NROaa8pPn85VXP39gbVRGy4mBYrDjhsnl1lCPv9TRZQ3lE77W8231BiT6BeU6dRbtyMormN5IBM0X9fn63Yex4zVCn8/FA3Oe8iIJhE7oHPYia8axocvodPeNGghHBwHrmSWdzOEUZUBI3OeGx8uP7T2TPesyVYooQhovFQeHRbFVMewAuiY8nW7S5uEaO4W2nUnY46G/qaGtjd9l0EiccmnxTgngHLUgjZ+nfe2b64nEzlJ6qLNYVGfsl19uZ3TFlW2X3N7P/PG3+trZf4qQmJfUJ9Q5LDIMHS50ZH6wwaZqffvMUZjzlHsblfb+HTf5AuXhsdNvfbjKOUZBFUf2TVON1cyG5MxJGBXTBnV/4u1vOYC9uNFIxXWcchUzXCgvsCiJ1g9fiTM7/cuxf44k8kSi71H+pLzEIL1qfb0Hnc2DndLMiXsVlDQi6t81T5zQvkkU8yoL+pZM8BfSEXuHEk2Zw2CWi5uIg3TzoKvR2/F2uTq0fwzZhxcESH6Ycx9jH73AuO18d53gn0v9fkpT8O2AHXoS98w5R85cZsmo/I3xGrzb7YKdpcRSZ7Guu949tGa2Urc9Ycfhe+3RBwg2TA/EkbOMjgcZ3BN+rz+92wUCusanrIqOns2BT63IsT582rJ47TrLoiNnjYipiXT6M+ZFbvyxLuZn3eXq4fkJ8uwlBaqzA93ML7JE1ch8jSznxQo060ztnUc/502V7vPje9snhWmo6YigtIXy+KWFDVl7dhhqVaXY5qVa205d1hAbl9x/nzy7G9S+5jkIqB6ftF6rBWutwodmLPZcg7sqrnybd66cUDzXtfxNg1d76rYiYytdwQRmgie/EDamMr+MB3Rm8ir+wJLKVyDhy3BW4viK/GJUjQAutPWJLkOkUz3Mk/fEklLsAxevHR+pyNq5PacmqQqbqhXY1WFRjKh36fCL8tPjENOaOc4v7wpd6TvP+qUWhXlJ2RzJsL/x/FxS6kuwzFld7SFzR6KHS4dRmI2xAiHLX1sbcCFsXmtHf6g0t7og2ZqVNqRb4j/M3N8av6WivuLA9dyBlGqa3J2ArdlPwl6aShfXe+Xm8fazGwYWDLEVuXVVGeHB+qVp/UFjIftblKvzS0r2XCkEmKm6E+6fuVgXyhCPlxpUZaBOB1XJ6mQ+LFO+08sZ7BfOWbEy3xQs92F47nfIaaqhyk3O4w1RXLDcz0CG1LmpiJl1r17UoTFzpALSHAbTMzvthKbTxIFmejNoY/Xp92UHjv1f0HwS0o6Hic0ywqhi0mV37yIv7BwZTprDontvh89sdaJKYAJYuS1k69Z1Y6UrYjULINkQASwVsDEy7CwlmjqLQQQXxP7XFYleenH3OI6BO4j9CzdKYCCm6rBPCSv7k4ozXLAvKA+os1hkgpZjP7LvJVZgmy7GfmX92m0PiDWAg84sIiCDllb3OnngN2FeYDfhPZCFjehO36ZR3bYQKzhmlnKdMot1SX7T1XMANUMwStkzH7EvnP1dpjEIWF/su6mXSNijBZU4D/wo5tMsEyAYA6hJ+iQeMyGGwbGCT/8MdWRpDxkXH0aZ4ZP5qBn2Q9b7iBAzoIo7XY5q/1vXg8LMURwpsxjMcLjn5WQfn46PTo/clt9lIbEvKIC6EYOycJ/T7c2G2ZR4yI/GDF26iNWhsOcoIrYf8uLP7ZyYID55qsQn5xZn73hvSDASM0cWU+awCN2blo1et0Ew9/gXOnFp+MdNule5eAT2BeUh9TvW4+ffkkcw4YZclm5PmuI/ulkoCjtL8V/n95d50rdQIm1eWz8r+VzgbwBA8vS/gITbo1H8IBWS4x+aTBKRFcPUnA6YVBpfiXJFcx65+ztfxMJP/R4wed+Fsy0knhITSxI4CS5w+BXZGaHEGh4Vq/7q+t75Ds7hFtjajHFLFIliuZGf3JOiVBxp9L9BMXl1F5TLpncva7EiFWGwCSbRtLXdLrgrQ5wWKEoujNOOND0YPc/Nx6gzKSJHb01aglyuVMWEZDOdkkIU0wn5HWvbAPHZQmBOq8xCHUHjLjhdIDyD8tGfHBBBowf5zZeQLlDYUup5lelKX1PNwdrCW/2rml/fae2pPTAvskAQzow3qcTCQhV7Y7spclW+ki9p1gJ24IFwpYLH5YkiqAKNWhxjkIcPGpoStg4lZSU2C5WwdFvEfSgsoWRwOqFu8YOa5t8XL21+9axnwrRTltkIAsGGzkjCM2SQK0G3TS+Z9PsYymfyBwoJk+yORqCmSNeCBbyQOeHq5td3WnpqD5RGFgrC3LkrQVEce33Hb5/SJm1w8nml6er8ppqDdYW3QDRPxZqOKIsdDWJ0ZvbGR2fKWQM5J/eeHE7qFNI4KIUt4j4appm34Ghiw+KHNc23Fw3XvXrcsaL7SFb2ZgBdTZ7XbrTVix3prJ/4fUikMHHkwCAxAR2+yd+uFu7YSZzaRSV/HaPEBpt2D63M7Y+RFEZzeNyQSKE4KorJZGSF8aIZLlJFuJMr48dr/BIkMSiiHlxInY9qdP4BR4zfV2VblwUzpHRmGH88eAhT79jjpXHzba6nGncO5mv9lTKZ7X9ncaP1Kk5qzq3wfTiP7X3y2IKdAssnRI4VTfKJSrYbiqIyWLzQaJUoRtGbwzBaiIylay+nL1hyV1+3vSohV15Ntdt/dCaalyyF98N7JUvV5u266NBWmzTrVHyTUADI1Qs/UJyw4T+dfMPaSUMouFlIAdaWIk4OZ1xeCZAn5g+ym8r2ZMY39Ew69Ib+Tf3P3dsDDUcNkbtDfZ3eJnsoYoKuWWsFOj49zScSTK8fKttceSRN0zaxbv4/Ln4tFGJ2E1JH2KeAEHvq9aRErcQvx1thPeNGb0Du6H5OsTt1pIfI8w1moz1CbCJC+RwnLHmDcIWuPRyXpebzs+Li4p0QvurUYHaa5az3zHDOCKzZMrikcDBaYowSioVREfzYmDDG/36BWpaPV3yEKiLOS+OXPO81bLqHpEJJG2bb49hOTlznWrJn38I7do0qfLKKvNxvwNH7CBn4M0hUbRJd6XP8+5JIvgFSFmEjFcORM/gR7BDK/sa3vw8w979JAOSuhR88LhbnbfCe4zkAcmX38zAe3KM+NAD4XpL8b2TwQd/oVfh6EN4RfUMbOqxG+icjyfWqumHezqy4ht5J+97Qv5nv/uMQQ393iu0PF5DAK9mX7sRDwvnfq05nbT/38KMQuaPpZ7LHgHzHLD0AQ3YqHjL2IUn2Fzpw77g4/qqp/dHQYPfDd20rxl62dDxaurD7wbtWhyAT31qdjz2Aa8W26tbXSoW2Apt0CfR+bBu2ZZuABOsuO8Ck2KFlrF1jHXk0LW6FsaMgJMc+tbhs3i6Ifo10hfphp5UNV/qad+TPxfUb5CEUAu0uo9lR6ir1v71zJF5wOkshYQrC1PPNMaXpyvzm3asxvxij/Tcr4IdHFcdFfR3ogpPAHsfF8ae7shWZeUXGFKkuMuphOA1+jOrGCfeqToOXwP+EkAtvJdoZjCj0GaebGzQvkvhuGjS6jwu9a49NAz+5Qpkg2OWM2keJHHXemMlpju2fWXeIn4DRYrC5Rgy8wsQ9v7s/Px/85aPMTSvzYicmCiLdQrMZqZh2p+EkXmOCNql9pSSfpyR44bHnR1FwodTjWF63OAlty85flAzIhjJhrIDlMhO/ovKUDZncRkX/6cnDPA1WFsOsr0EjUfe8tj8pD/HcV2GcyDtSmyCMcAvTM9LQrU4jMmGTRpfctkpSIIjHSbD46WG5Z4GUeSynID8J82osmEgClk/i/6gNdkBP4tj4TxbFI1IdClNP0IlCpAHuA9XFCDgMZyXRt0VpWhe1tnsRJccsDHLc2rOO/iCQsyigA094Hpz3CEHbeJCf/hZNgZKflYgNL4RI4ppnzhH+ImaDRw7xS3cPb9NkUZJGK/E10GMrHmQ3VR5O17SOTwK9ZS5lx3X3uW/SJ3+7f0Ggz+BPsOgIVI7oDqXodfqfn1uL/C9oBW4I9D48grAP7fA18TntQwFq/6lZEGppcL5y6te9WN6XGV69W/Fn0Ai3BBH2oPJMIifw8wFd1F8bTr7MziS/3/XvozVCmBXmC4LOGmfREWjX5x0rcafTT18yYQSTWpEgaJ6a/1f04r0W/mb/rr/BIaCiX4KfXd/w3R0GR50loPFnUXC06e41Cx9r+hFwFKb7h9sbvsTbEHEX8TYa/hlmaZFVMgO/+kk5uXJD3jdH9FnCJsIZtMPp59Yvo/dVqHzOmc+u77fEmDmgzxBQxCmMA9p0/F4QF+xbPGRPWNpvGVsYCpuwD91O/aEftrQ9ZsxVaLnM9P1Ob6L7FvGR/vJqpjv6vw6rqQjtylxaEqas6jalcKPFwUHFsDOVQTjCRGAcCP0S5tqBXoIMleCiuEpv2ZmfyEA7Ubh9YQ0K94Yp9MZiEE/orgbENRTzi2i3h3jdH0E0RpL/M3kPBnfXn+6NwcKfAvUin81futthB28M1Q0tG+gvWzL7OLJz8stUVnydJFIuCvUO3RXqqTX030zYcEE10NyyYGFb5t6RpJnhrAxBbXTbwvhaQU76Acb2pHx5QxSDladJDek0yoVWa/qtzmkLFunVyqYF4oz67QXpB6pymKf158SFgtzl7XujuebvDifuvG+SxySEhfBjQ0g/Ac3TPT5e62Vgb7Z+baxdXzRxZdPhzCFaNf//zfIihjC3aaBK7F9pkAP6N54stb3KlLguBTW6CnMuI21RRnrBgmNxbaOz+eW7y+pMO2rpRCUvStb6x4L1XlZUSwJuZu1nm0HT3SUSnoKOSHPWri42ajuY48YR699KSzYYsnJWn8oaXDPboai9EaAZVCYpK6RR3SkxflVqpSgkYv5dfw43cvWEN9KfTSHYoe2/hfgdTLrTAZaOIVamnifiNyxwWBS/6CzXcaPv0t2dW14fet59K6N+LE2uUvNj1ekJKrFSI4tNqK1sYC/Xel0w/xn/MEAV4K9mBvnHqZgBQS7MiAtS1J0XAUCbX03RJIjwxlLD7srVBPzqDsOeEiNelJBgPvQ0IC6AMRpmxMUpgar6IeynjkvZY/RcICMeZp0bH/jmZ2sVr0wSyHIMck1ZY1cysz/BUBbzE5vOdBmUC7E6jrfCF+VGAPCcg+oEJUeUmyzVllTVlMSt7TDKEM99A2LSSV1KnqfMFS0kPdNoFNwl/YnhdqP8PkgBqhK7ZUr+U0AG9Fvn1QnKGHFuklRbUllbvD+V43Myh1li26XiechdUaL5JLGHxHtjMtNth5Q8Tx5heM50UMER3QIQgB0RE3eK0AFsaWep6bwkyUqXLIlb054rR5jFdozXqwtaSwIOtPPHh/cD5KDuEDiCg8LAY7TPut8KUx7hHkUmG+JSpUrOa/LejRt8Fx+Xl+v7otWqaLW+T15+fInvhg17Sa+VnFSZIS458gNYpr/SnHbze2soB48fPzkRn9D8UUybXCd2b/4Yr5k4OYHnEFpDbv7dnArwQiYwH6H867It3B8zTe7ycvcCFt7e7l5d5IMY//BtLv+AZgOJWlqrEgZFGRSGyNzQJL0hPSbcH33XLad9k1BTFxsvbcsslKT5eGewyCytix+Z7k32c0kMIbMyvXwlqZmF0vZ4haZ2k6A9x+0O2j88Jl1vSA6JzFNkRxmCBbVxpVTgKa8I640Zj1kbMxHWWwH5rK/Y9rGS26Ecih9TLON1VDBc9ASnT3hv9icOMru83ks2r0u5LH5c+eyB5wUy21mH97b3VYybDL8njAjLSZvDNkcsN7BlNlp0b7GnfoxbjMjQIdtpAdxpuNdiEnGPR5TtVodjtjtjGE/O6OakNtscjtvsLOrxaiMTTnlG2eyxbHZwXhD3ewpk+9I6YbsDbBgQEQR4wQ5L8gsRUYjn7/yLBNho0mKimNRGIreTxMQlqJUKwPTHhXMbKRUA4mIA/nFe7FRCKnd2riCVOC0B/LbPdu/poiSFUCSVhQcl+d2NY8o2aTJbRquN864vmGGrHctcRIE6Fj/XfTj71rR/+NrTm5Glpy/modc/P65TH7t/Ira9b8AouXcxd75Q83sPUrl6OqTqxf2WiDO76wMfP4toOTlFMc7N1BH3jetf7e9oBTIwz43DpwZTuWx5VNhmelSEOjoyQBIYJsoon+Z2FU6EJ1bqrnoXgYidNdOBdY/um3z37DH5ProXWD99ILD+0T1Q7hPl9ifckR89GHt79qAslLkzaVd0+kyh3Zo1jsdfi+yKMeaUsLyi5NFQ/difbaZnQ8Ntrx92DwoSyNFI9PIuuCNCy/khkAdp/uz27+wzaGTF+ojtNc2yXZ1pydKysJ8Na5mrK8E9s8VfMnZv1j/v68l+snv959TFiz6l7lqvf9LTl/V81+ZPGYtkU79+F/1cs3rxX78+JqfAwNK/Vq1Z/BOyaHKlOCtH6fDVwTU4gfjYOpTv6MoTSUQqdZ5YgEUt3jN8psGa4PaTRkDV9czsRH5A7F67oRZLdHdes70vkLIFVXJmEfPp163WDgzkc1ei/QvaKdeFAM6qXe3VhSUub/A+Od4D3bKELGJIX1GixhwRX/GXiG4MCcONcBn/FeE4xib9y5A6CzrGXd1sBN4nG5YT8F0qXqbC5o63eSHtHF7v6PBp5o451Nw3C/bQ4vwmogeDzaAR35z3eITyq+dAYcu/7MNgn+JA1+GgQkL96OYUrCOfeBKvQSDgL7TiOhsm1+kN68AtCNyNecEt7THwqnztqXQ1+RlctfS6Ho4oKpLuos1+Apju7ZHhW8xK7TLMB8po3s2RKkZ5oyRCLS0UxTx74FOLKcIltwmyShU0TDJ8sSogKyRHOffsQ45Sz1IFtAkyi5W0DEtKGzYZW+RTQ0uT4QpEaqkksrHczbsp0i1BP5BhXmLXai7DA/rQ8FGrrfMlrx4tE8F3Th+x3jZf/OrxkLBNTjpt8Y3LaJmfkdTQxrW58o0n/0uUntTYxrEBNsFn5rle9T3ohn7ajozwxP5NGSZvxHpeqEY9u+m2KjIM9cO5INtN1kqNxuPfgQ+W9O+76uKH14oPlFcyFiUKotITKpLnCVVKEU+ZqMou3fQof+PUbWPBrvLsrG13du7Lt8nJG2tdIm6jNtNbqHxJXASJu3bHJ6q/i123al2LVCcs8UzSekkCoCSXRFWUp4RPZYTJEsE/9weeaJZgl9zUlU9Vt7ecflW0auy6umAwSZ6UwhMK5dwMaWpqAuAbuGG9+ZPtw118ynk80qH77HmrBC9aQTEhVzBNJLz1o7Co37x/etNwiNpcsGA/7uGDPZOO8+0QSAx4TH6wT4WsWY7CzlEC2f40Uipy6gp5/Tcj25VM3eHp5u8jTfLmqbN1KjdcrFAv5LGT7e87fcUHRH2iMAgOriOgAC/VpfEFIgWnjJOSmJzesGHn/r5tZX7xZFk4XYNA4/9xuuY+6ot+u+RkMaXRUVjUGRDV+X1m7R2ZY0lh/3ZuffwqpwXMVrYksdOnPK7bM7H/WkHFkZYFHZfeF69aelmTPwh8hcPdh9TZ3apYtUYqUcglKqFYJo8skMat87M9/VgAqSmS5Zu2bJ/q3TSPXxkjKzMX9cJSq0ZOptZ2ntQXHGgfaL3xunrV3l+8rkDw+//jyaRdIJi2WJFOwzeTqgSv8KuvkJwyKFMeDM82MjL5+7d8bqK6hZHhGEtjugvhNDlLos/N1Feb6uKCVtWdzG0FKudNd7QFowZlSs/hjEXIXrF39ErV/Prhebnz6ooEYeV9qSa3J7yZmwPVTTPfq/ev+CO7ZktJaubKmeIRxLRanefXodRH9BRLFMKcmJASiTaqZ3lhp9cc78yMqbxz6w89cHLuPaY2dCuVarVEoogVx/Fj5UpVe7cyGMAe839dWFl+44Ytq3sn5/GromTFZoKFmx0+kVr3EyGjYE9LX9vV15Wr9/63tpt569dYGmEXsNmTg6EoIzbBs2Py4lTsAsdM3tYMe2Bxup1UkSlYYxsvEUaEbYCknTtSA38JqM8oqR7QSYWJXmr3/eMzFxeqy7Mf7+0zIoqUkyC0As5via6Pq4mOiNYqbZS539FhHKm4oV6iUHWza+OL2UHdO0msYhusfrviykX1JhGo3+Tkh/uBs3dyssf9xPqBHUEH7miGAk5mZ5sZ1UPqJ0NIrhslfohnHdd5LnF5gCf4uh9TmP1+KcJigox/EqBSInzJZD+KJg4Bw5HHLRBDV4DlHgyplDjjusaVi6VSKAFYWvAaYjqA7VhGNJKqKQ3kGmLBBqJsv2djh7OBVuVpcq9xzls/RMgj1pAanWrxeUME2VnPxmXkHNcaWr1rDTl3x1ePXGiVWZWZEcqhyIhE2SOaEVppVg3Lg3rEFUBqYdXQPEB7FGHtJH3kkQertqgxL4C5wzzzIbXQalgehDbKX30UYk5nDcLcMQG7K7C0Iw/CGl+/eUvJS1Lylk/h85xwTdkfqWe9BpaSjK7VNJPjUTO0YS+UWmI+WM5mcjSBwS6796TE70niqwJ27tFpdu5yDWK1IoP4vF0dJX5H2cBMiEGjzgjcuTs53k2Hx19XZliVmD6al5c+vFKTk71KEybOy00fW5loyBDlccPmiURhpcI3JT/Bpco8/ZkFPI1lQ9fjSgfTIrlKVpRKECpLrpqXLy8Lj86XcCIK5utqPdYEH2pWLUmsNm1/kbVm4mFi7UIdWxgbxZKK2BJNR0l59UBFTnZ//8HIsaADJtVw+rzm3c8Ldvezd1r/Y7/dpp7hpiE7GWg+NrUO221+Kr+xt9n87bDVpsbXjU8mGWj+NjV2W22+gaDFt1/54p/Q/pvf90rrdafEdK5SLLE0h5dbW+HMJSlB3AlF7DvxicN06oswOvnZ+MHz8qo8IBXowe6BVW4V35mx26qJjWmo2mh4AOIa0gXu4n7d7dQnIg9TMq7uMUzX7lvoOmfeaTeQsLjUiiOa31J7SNZwmrh7WHBnbpMq5tiDuPkuJYF06OF6xkEtG01M1toYRd2V/Lj4Pk3uqvBXQ5f19ju6q8vW1QUU2bpSHdAyNWQt3AUOVtkHuEL2O7ggTlbe/83J/ZQrmAkWWwf4qfxAqD7eqC4JrRXUVx14nbd7xUW9fnW2KjZVKNSmxuvT07I1BsPiJdHkZlozqdEGqPgDp97yY0oauSmyHpdmn0aX6JQcNkFUcvLjI62ZZX/8tt64tKhcWrrOX2biuzj/lkqgyXhuAXxhHDsRHvfxpVWU2N0xrg9R2oJ0tKfSgPCFGrbcrMe8HJpEJs7HosZIJKjOvMysBzasVpgNwprNC6FqJ8IYFtVHIkLV5gVmzbDBvooIniwsMiaWz+AkyxWiElXM0vxG9eaFutSMdo0L7x2x1eFPiHlCcc9eVdXg3VLTxYEFTY+eto027ZKkNwD8vmUpPQpFry5R0dkrS07ujVV0J2rk3b2qlPREY7U2Ka9Coy4o1yXnVQHrvbtD0nL38DpGlrWU7caFI5Fgp7X9dXtCndIzXJ4uYH/7Hv4wjLXYJTpAEBEdqH/94O17d4lawuGIeGFMrc8zVyZ3tSy1fEFJSuGZtt2sJOR/wOXZos4LhWXHmuorj1wu7kH+enC0qa7y6OWS05/qhGnoCVQ+qkjZnxPTpxOnosZRhejC2AFjNOg/1pIOy82QBPurKsVG97HAPdWxSzNy9RM7dFWSDNJPHLZkBQ4zslKFr44R1otYxrr6piBuvD5LFcbQGHlqynjwtmphf2Ja6rJNSc4FURpbXYo0IkxTL8h2Gw3aVifqT8zMGN2V3MzLcLqIxF7aisVUF7BtDs0PcT7DTC8pqvWL0WZnxDK95HqeljoWuLdKvjhDFz84mgTCmEd+UJP9/ZpIP0gNfv5JNhNvMVMo3Bah1OH2fczlqu+UQ7fPbG6uOHgrd8l8LAaHEmHbNl4j4HCruhewajD4WrCOEtRCnfFeTq1hhop4QSyRMMqPUOc6Rji1QH/13/qi/WnxtUtHeiOcf9+YRZ3Go9BJqKQklZbvk+aZ/uT/zKJkSGplm/PtPX9l34hHo/JRr0jFaCzrtK3DJwcXP2EyExAxg+PTpzeatFsnUnI37Duze/PRS671GwQLY3j8hSPbhYt5XqOUTmB5xikABQhH0WgoxwZDdKa30J0J3w5//oriuXvZht2efBoSja1AwHnApkO5oVMj9FYr3JLCdQyZr38NPdI7zteH6qtYYhpe0FuRGhCgKVNnMaWH2PmC4gAtUUV0p5oWKSJX6+XWxclp0kgFEyY9AHf8j0q65OP1P0DnuF7/k4ap6jemGiar+zt7DWL6UrrPO89g1wlvvxBBrCpSGuGFSkfY7nn76ZaG6LngCFuFRKlRjpuQz4l7MNlwW1omwKM+OnQsrzFexFoRiCABibw1+sTZjkJPoFPw2DswGLJQfqAHiW2tJnn/xQnhBvnRvGWcULrDW3+UwoHqHY2Jh1vvJQF3A/zrKOG737L//VKCi8LKWPmMxFdqDlrgdlQ9y1Lws2R5kpxoza0TsM14K/vJ934prOLQMlYBI+EfHhcZ6HbZ8DxYKdDL8sQGdgKwYTmSOVJJNyZAJE7dodjZ8JyycbOsEaB+d0w/1SjbPOJye1eDYkeqOEDkXiOVACL6RS3mYhRneiPl0/EvyYVk8ljy8S+PKRun43wBeZmTr4R2vYtEhWcuoHgFVyfUyHzF7g+7yFSQ2UT1CqpOrAWwyTG3T85PnD/SaB+dnzh/AnZVzpxYaVR0rIzDlcuio+RSLUeRIoWf3xc45jiktRh1OrdIWmZzXmLiT6/0QK/m0JAWL3owhxWqBP/axqpG7FBLnDPz1eLYmtTCpNKYNEeWwwlZ788kSlwG/aovBbe5Hdihn4kUERF36OLOAV5IzVHdrcd9Y30NACV4Vr+5v36s7/GtY7pcXsjAMh/xHboqAhAmt1XDV053bHAGR67lpZJIRbWHrwHGcMdGQKbZ+YgpF1qcIm3UgxTPoGJNqcRHtC1CirJWN1NRSV9gV2XLiRVHRaGBw5GHW0XKJQlCiuQhXuybaawEIJ78SDZlquNNGcmp9ZlxcfX6ZLK7VVCQjbvHm8Cgl4DbVeeWk0FbRn6JFqyMDTUgMXMUGWUOQ8y5d9l+lyv/Nx09cmMtEjtLtfrhDcsP3vuH/2PTXrCVev1WudepgYnqo4/a/BQnnt9YRHvSQaQ8Xq/C1z0sDfNmB36rNrm/Sk0N4kEnOwMsVp0j7clSovMnHq5t2sPHxX/fLmxKkF3Wn9ehMSVIpmAu+ApRogZeDJN7g2fnjken7Ni380qlw7muZsMOQ+fZvlLzu0sC6NB1zdv1D6Nr29040dVeY75xgPjVLilqh3n+kqNtLb17/sqYUpnQuZ4/7GK1atcsVHjD8pFV43v37zD7YiQc0LWGJyLRZymPz9PHHzBuItAJm4wDq9yw5zqfi2cwyISIVt0BAlDMOGqQkyiDI9KAmkLyCZ0PpTkG1CHGY//mnx+4ufT1ICr6NHlv4Hn6uBQzNXH6wh2vfqn7+m273RPnHsj0k2ZfR4zY0TcuRatQxWk43ArhcqvwhKs5TQvXtZaYHgxfiMnBckI4XYwTEXGCpiBGV1afLDJVHLSg4OyuM4vS5qcSxX0QewBgKUXDB1NMK+/XVN7s9xUL5Vz2X56ScJVAHD4XzM6uOarorh1OdU90i9Tszi5rPmjM3Q4G4+dkRegD2AZsi2ZqnuT1OXkhJgs24V6Nk6USiKZ18GKHd67zH87qmqZJoWHZ4+bmR0sHWx48bo13aWecCM8WLAxkdOn7pJEp4uDBwjO7zi5O7XeKfPo/bAqHD6TU9V6qL51bvLTk6ZXOhY37jcbtwClxL7B4RyFhwrE0OGo/cYiwHwV3s0jBOFGARRTxyxc+DAEnf/hN/E8+GtcLQ7nw5PNON9TWTdcU/Da4qvHV7dbuqm15LH0430tVEysSFatiNra3sNcVqgRCkwKIskOOd1q+71u19nVn07ux9vLbF1t71H1h+gqUtp4w1Gx99FxNEPU4CrP51hKy2Yaz38uY3zc3yi411srCMrlhHcYW9ZGWfAEnlcusi5zpXJMsxY37lsstpLhkP7A74mzRxJrHkYdo/kOXJqZmZ+sG1jx4us85fuVdOT4Hc/flz1rNDX1r66m3RWvAhj6b0/r8iewM/bILuol9X9vr364KWz5G2I1Ezc3NS+xxyiRsE/x7iIbYR3TxnPUoPd/5W2t6aWN5LKOlMsWItStyxL2sybVZkZW0qmSerkIWruQ6yXuWHsCgG3H/4bbhHG/emzwBN9PQeMaxDO1mQOYv++rsayE1pyFQ+wg9+H2oLOs69CooI17hEr9+4TVwqP++rja+Mr8ZOwrUYbdXtzw/5WKyfnLQnrgNQBkus7iIZxsHkUnRAi8BINBnqJedzYjpPkyXVA3GqeJ7zzqKXlMzzKtUuaNOTxfG52zPLNTkyT4XSSy3Pr/oBLp6DORzQDOpQHQhgokU8HYQKlZa5sqj286Ud1wlMNPKOLDz9FAHOK2ub1sAjCRglqllZSU7gzoWpXp5uNFZs7e5FQGgg03A/ZBnB0t7TWZumc+Fa2qzdOHzwCm6F7/QQNUkn+lp4S5DZFkQgMzCfPk/v8cteiCyND8W43gmbZGXAD+WMAHZxRX9fww1VJ4wYG7GwpLXPLcaIGvIWrKOTJIpsj65Qaw4GNC5MYvDDBa9KTZHbw5T9JZYEL01hDfdFteJeWRD3AcMSzvEJWBJMgOWBhskZmJLbI+6MUgQvUlK9GZhN93KwkA4Sy4Zji5wa+JswJE8DDgaR4VkbFygSw6RAT/uoHlWRm9Ks6jN8UQoZGfACQ0ixLXTtbAA7NGjurfWiy4SD2356nzeKGpkOOrqOIpFr/E9eq3L0evciZ6y8qbrw8mgxJHYGy52vAdF9Bpfote6EJ4yjpCbt1zt6PLMmj+7qxhv7e9l4b+MHO409VuOQiGo7uvunAgz/CSJIYzo1fEwek0Qotf6EL3Oj5tOOWGwuMiHAIt4B1jGL5CMyQ1/+EHTBpZPeWOcWXywNv98gvePrZa/6LThr7pfj5MBI85L9ayH9J7D4XWYWL+ncbq2SjvXhT9rixXps7AaQoIsso6qejnkzU1MCshTIzNzPD8kN/0ddiOhneYcxkbEp/BKNC+9VLeXBWFcyvc5qCIE4VZuM+Blri4LtMqJ5xZeWLVV9PxyOKySH7taK0z0YZDaXKr3vVRbnMGLpIbluV9rugnuPDX2WYq9G/NgVqjZ1dk7Y+oFv8N1+M39hjUyNs640MUj2iFeGVMEn3VpZCQxjvbDuHMeZn6kW4X/0t6P0SmMl+yQgfT24ST8VvPWQ2MWGlyoSpmJnnH5u9b/i5vwWwWz2VYgfqMiVLzGWeGofwFpd5q+tR6K27V5dZAh4OS3mrced5+l3vWZhAv4rQREnIF0Vq4KyLrNLliQLvVdM8t3owCP2TXaPWp+Oh4wBSIDfuV6iU9h3a2LRIjX00Nuwm8SkBEDcV1X9VM8CnsDO+R3emzqS+oo/D6R0vfOo7VHnZWOB0wUOD9+aJ0b+E0CIpal7l0mQY3fC5I/TY0fnOiZ8KjfrWBl7wN89auODf3zuc7XLirKXMpDIxQwk14WPF7+JBPcvwHuHPP/S17KiT2AMkn6AvLMlz+tVCs6RLzl9yX1R4o2hso/AyFfQZj5B/kHG2PZ064IcVMlf0VSzSPCOilDX1Ss+YN6VnK+kEDOQZQxch4rrNbT9gxy44j7vitPJyosVXcI7/+RMzDiNEFr7urrCGZz4qgHakn1f6REb0DfP0X2GZI6ira6ToY33fiyQetX/DqLZXaKZWEmYlezTL4QdqzVNt8o2wu/vonJNguzQG+SpWeglKTRZ6S0g2JFTfGuYyLjLu+YZRvGj4xPpHWctFfLQiQnt0uNFOSsofEdc5+1eRK23JTLk8eoP9kmPzCPA53IrV5VMOFikfYRvYaerfp9Q4pUlK+Bw0/KoWWcI0QXjlwy/VU0IrG1SXLfou1Ccf2KWw8r7N/JmyKyf2Poe+SRg5av0eKwsCrE9o7S9081rWdaWAatZWFb2+u0bBnwrpjXWRqGBzfe3HuB5j7AMIVCp5fvWNI1nHg5YRdOapNUdhBtT+gff8z+QFHBolNPnu9w8hBe2QqsdxDLVc2KUb9S1MVzYfFVaN4QkRcEfQmWcyj9UUgiHlD4CRDUXcA3sQdmYFfrm5DSPSiPC8sNit0QacrjHOuyP8RNk/zFpkxESOKCEpIaEtoheDihhpPMrgCJ7ACAaa5OKQeCuM/x6q0kPUE85SGYDd2WL9UsUrQsdLEebYGkLww6LgMccOusIcZ+2NvrJN0Bkt0BAMLpfQcB/G8ZC5dZ5L2WlAeryeu4MaRQAXgUzX0lhGukVUI5hOmVMCGB95oRK80Fel5pwdVMpYMQCyoREJpVR/hL7yYA7bSVgR2ZGhGIqEzYYHorGdSmrt8jFFoD2Mo2dmzUdqwPzDZPCX2zpKrC9osVMFCap5Sue++K1NPIp1ehTCMULleVZVR5t3SMZytPflFVvFbFB7wWlSa5VxMjDaMSi2deN5NDpIJTq4tm4AIGXGVXiqggY1UycKyAU0g4hkqrGOMdVoW8cs4qIrFcpf2sZbWMKqToQ0+qAAzM3/0jpcoWKkTNMOkFM8XptMs3EV+CSGtYreaBFYfM3WjPqSo/dJapVxG+VVSBmIpFlZAjYyE2NQ6ReQoZwdDiqg5afnCAtMpLngI8Uy0bQyHWmj8TztEq4nOvlYyq1Csr7W+rwxvU+ChLHwvE/s8ZFI5K415dQfWZvH59qaB++5GisAkIiYgrFERk5AF7bSsoqcSFmfgwp6aRIJE2LOgkSZYiVZp01qGMq7XMrOMIjszZFnsrLuSGlRlnIivUY6eZ2rITjSNDFqQYmV5ChK0+L3vwnNbDTb/5BthDQcPAwlVpee07IbFhHqpDDS49Bx8sNe0jKgoXk+HAwlGWlgdcl05WOqywUrfeQIRjRYa2gHRE3zK++ssgvjl33LXAHx4EKtCBCWzgAh+EIIZTkIIczkEJqkV2eueVxS7Y5pztshliyC7VihCadq2+TSbXdTcna4e8k3q7vaTyvbHaLu+9tkaf2XBxwslwDTcFChUpUaw0AXH501KpSrUateqCpp5JQw0N1nLZvae3zstwYq7Y2o+2Po0nnVQy+44cm6a12t9cWMKgzqu9L+v7JV1W2ub6Wb3SU3VWcq1w4le7SbQfy+aqwDqrtquzN5yttTV5s2M6WvIO59J8uj7jN7N1demnHme2Ym0M3kuRiuusiimLz/YNJ4vtl8iiP9YP/PU2ZzeWcTnx3L7MJ9dlV30KXCFh/O17hdCqiqrcP3tMIm/WF2mVrTj1uEP4oyYPQdYYRjhm4hBOZnAdaurM0PX2qOZ/gy2W+wd0DfUXAAAA) format("woff2");}
+:root{--bg:#FCFCFB;--wash:#F9F9F7;--ink:#2E2C27;--ink-soft:#5E5D57;--ink-grey:#9C9B91;--hairline:#E4E3DC;--line:#E1E1DF;--clay:#C6613F;--clay-soft:#FBF1EC;--ok:#2F6B4F;--ok-soft:#E7F2EC;--rev:#8A5A00;--rev-soft:#FBF2DE;--unv:#6B6A63;--unv-soft:#EFEFEB}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg)}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink-soft);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--ink);text-decoration-color:var(--clay);text-underline-offset:2px}
+.band{padding:44px 22px}.band-top{background:var(--wash);border-bottom:1px solid var(--line)}
+.inner{max-width:860px;margin:0 auto}
+.kicker{font-size:13px;margin:0 0 10px}
+h1{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--ink);font-size:36px;line-height:1.16;margin:0 0 14px}
+h2{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--ink);font-size:22px;margin:44px 0 6px;scroll-margin-top:16px}
+h2 .n{color:var(--clay);margin-right:8px}
+p,ul,ol{max-width:680px;font-size:15px;margin:0 0 12px}
+li{margin-bottom:6px}
+.lede{font-size:15.5px}
+.toc{font-size:13.5px;line-height:1.9;max-width:760px;margin-top:14px}
+.toc b{color:var(--ink);margin-right:6px}
+aside{border-left:2px solid var(--clay);background:var(--clay-soft);padding:10px 16px;margin:14px 0 18px;font-size:14px;max-width:680px;border-radius:0 6px 6px 0}
+aside .lbl{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--clay);font-weight:700}
+code{font-size:13px;background:#F1F0EC;padding:1px 5px;border-radius:4px}
+pre{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:12.5px;line-height:1.5;overflow-x:auto;max-width:680px;white-space:pre-wrap;position:relative}
+pre.copy{max-width:800px;font-size:12px;padding-top:36px}
+pre .cp{position:absolute;top:8px;right:8px;font:inherit;font-size:11.5px;font-weight:600;border:1px solid var(--line);background:var(--wash);color:var(--ink);border-radius:6px;padding:2px 9px;cursor:pointer}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:6px 0 10px}
+th{text-align:left;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);padding:0 10px 8px 0;border-bottom:1px solid var(--ink-grey)}
+td{padding:9px 10px 9px 0;border-bottom:1px solid var(--hairline);vertical-align:top}
+td strong{color:var(--ink)}
+.pill{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 7px;border-radius:999px;background:var(--ok-soft);color:var(--ok);margin-left:4px;vertical-align:3px;white-space:nowrap}
+.p-ok{background:var(--ok-soft);color:var(--ok)}.p-rev{background:var(--rev-soft);color:var(--rev)}.p-fix{background:var(--clay-soft);color:var(--clay)}.p-unv{background:var(--unv-soft);color:var(--unv)}
+.p-grok{background:var(--ink);color:#F4F3EE;letter-spacing:.06em}
+aside .lbl .pill{vertical-align:1px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}.dot.g{background:#2F6B4F}.dot.a{background:#C89B2C}.dot.r{background:#B3402A}
+details{max-width:680px;border-bottom:1px solid var(--hairline);padding:8px 0;font-size:15px}
+summary{cursor:pointer;color:var(--ink)}details p{margin:6px 0 2px}
+footer{font-size:12.5px;color:var(--ink-grey);border-top:1px solid var(--line)}
+@media (max-width:640px){h1{font-size:27px}}
+@media print{pre .cp{display:none}details{display:block}}
+
+abbr.ab{text-decoration:underline dotted var(--clay);text-decoration-thickness:1.5px;text-underline-offset:3px;cursor:help;border-radius:3px}
+abbr.ab:hover,abbr.ab:focus-visible,abbr.ab.on{background:var(--clay-soft);outline:none}
+#abbr-tip{position:absolute;z-index:50;max-width:300px;background:var(--ink);color:#F4F3EE;border-radius:8px;padding:10px 12px;font-size:13px;line-height:1.45;box-shadow:0 6px 24px rgba(0,0,0,.18);user-select:text;-webkit-user-select:text}
+#abbr-tip[hidden]{display:none}
+#abbr-tip .t-ab{display:block;font-weight:700;color:#F5C9B6;letter-spacing:.03em;font-size:12px;margin-bottom:2px}
+#abbr-tip .t-act{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+#abbr-tip button,#abbr-tip a,.copy-all{font:inherit;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:6px;padding:4px 10px;cursor:pointer;text-decoration:none}
+#abbr-tip button:hover,#abbr-tip a:hover{background:rgba(255,255,255,.12)}
+#abbr-tip::after{content:"";position:absolute;left:var(--ax,50%);border:7px solid transparent;transform:translateX(-50%)}
+#abbr-tip.up::after{top:100%;border-top-color:var(--ink)}
+#abbr-tip.down::after{bottom:100%;border-bottom-color:var(--ink)}
+.copy-all{color:var(--ink);border-color:var(--line);background:#fff;margin:4px 0 10px}
+.abbr-hint{font-size:12.5px;color:var(--ink-grey);margin:14px 0 0}
+@media print{#abbr-tip,.copy-all{display:none}abbr.ab{text-decoration:none}}
+
+</style>
+</head>
+<body>
+<header class="band band-top"><div class="inner">
+<p class="kicker">Operating guide · 30 October 2026 · features checked against Anthropic's help centre and docs on this date</p>
+<h1>Building a Chief of Staff and an agentic team on Claude</h1>
+<p class="lede">A Chief of Staff (<abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr>) agent is the single front door. It knows your priorities, runs the daily rhythm, hands work to specialists and brings results back to you for a decision. This guide builds it in twelve steps, simplest first. Each step should work on its own before you add the next.</p>
+<aside><span class="lbl">Read this first <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></span>Claude now has several places where agents can live: chat <b>Projects</b>, <b>Cowork</b> (long-running and scheduled tasks), <b>Claude Code</b> (repositories, subagents, agent teams) and the <b>Claude Agent <abbr class="ab" title="Software Development Kit" tabindex="0">SDK</abbr></b> (your own software). They are not one system, and a Project in chat cannot hand work to another Project by itself. Step 0 shows which piece does which job, so the rest of the guide only promises what Claude actually does today.</aside>
+<nav class="toc" aria-label="Contents"><b>Contents</b>
+<a href="#s0">0 Pick the surfaces</a> · <a href="#s1">1 Charter</a> · <a href="#s2">2 Lanes</a> · <a href="#s3">3 CoS Project</a> · <a href="#s4">4 Memory</a> · <a href="#s5">5 Connectors</a> · <a href="#s6">6 Skills</a> · <a href="#s7">7 Cadence</a> · <a href="#s8">8 Specialists</a> · <a href="#s9">9 Handoffs and approvals</a> · <a href="#s10">10 When a lead hits a wall</a> · <a href="#s11">11 Cost and usage</a> · <a href="#s12">12 Weekly review</a> · <a href="#recall">Recall</a> · <a href="#sources">Sources</a> · <a href="#abbreviations">Abbreviations</a></nav>
+</div></header>
+
+<main class="band"><div class="inner">
+
+<h2 id="s0"><span class="n">0</span>Pick the surfaces before you build <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>Check this table against your plan first. Plan names are Anthropic's own (Free, Pro, Max, Team, Enterprise). Prices change, so see the <a href="https://claude.com/pricing" target="_blank" rel="noopener">pricing page</a> rather than any number quoted elsewhere.</p>
+<div class="tw"><table>
+<tr><th>Feature</th><th>What it gives the team</th><th>Plans (30 Oct 2026)</th><th>Source</th></tr>
+<tr><td><strong>Projects</strong></td><td>A workspace with its own instructions, knowledge files, chats and memory. This is the <b><abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr></b>'s home.</td><td>All plans. Free accounts can create up to five. Larger knowledge via <abbr class="ab" title="Retrieval-Augmented Generation" tabindex="0">RAG</abbr> on paid plans only.</td><td><a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener">What are projects?</a></td></tr>
+<tr><td><strong>Memory</strong></td><td>Preferences and context carried across chats; each Project keeps its own memory.</td><td>All plans. On by default for Free, Pro and Max; off by default on Team and Enterprise until turned on.</td><td><a href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener">Memory and chat search</a></td></tr>
+<tr><td><strong>Connectors</strong></td><td>Gmail, Calendar, Drive and others; custom ones through remote <abbr class="ab" title="Model Context Protocol (an open standard for connecting AI apps to tools and data)" tabindex="0">MCP</abbr> servers.</td><td>Google Workspace connectors: all users. Custom connectors: all plans, Free limited to one. Team/Enterprise owners must enable them first.</td><td><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Google Workspace connectors</a></td></tr>
+<tr><td><strong>Skills</strong></td><td>Saved, reusable procedures (a folder with a <code>SKILL.md</code>) that Claude loads when relevant.</td><td>All plans, but <b>code execution must be on</b>.</td><td><a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" target="_blank" rel="noopener">Use skills in Claude</a></td></tr>
+<tr><td><strong>Scheduled tasks</strong></td><td>Morning brief, weekly review and other recurring runs, in the cloud, with your computer off.</td><td><b>Paid plans only</b> (Pro, Max, Team, Enterprise), in Cowork or the new combined Claude experience.</td><td><a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Schedule recurring tasks</a></td></tr>
+<tr><td><strong>Research</strong></td><td>Multi-search reports with citations for the Researcher lane.</td><td>Pro, Max, Team, Enterprise; web search must be on.</td><td><a href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener">Use research on Claude</a></td></tr>
+<tr><td><strong>Claude Code</strong></td><td>The Builder lane: repositories, deployments, subagents, cloud scheduled tasks on repos.</td><td>Pro and Max include it; Team and Enterprise too. Usage is shared with chat.</td><td><a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code with Pro or Max</a></td></tr>
+<tr><td><strong>Subagents / agent teams</strong></td><td>Real delegation: a lead session passes work to workers with their own context.</td><td>Claude Code only. Agent teams are <b>experimental and off by default</b>.</td><td><a href="https://code.claude.com/docs/en/agents" target="_blank" rel="noopener">Run agents in parallel</a></td></tr>
+<tr><td><strong>Claude Agent <abbr class="ab" title="Software Development Kit" tabindex="0">SDK</abbr></strong></td><td>Build your own <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> app in Python or TypeScript with the same agent loop.</td><td>Developer route; billed through the <abbr class="ab" title="Application Programming Interface" tabindex="0">API</abbr> if you use an <abbr class="ab" title="Application Programming Interface" tabindex="0">API</abbr> key.</td><td><a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener">Agent <abbr class="ab" title="Software Development Kit" tabindex="0">SDK</abbr> overview</a></td></tr>
+</table></div>
+<aside><span class="lbl">Suggested path</span>Start with one <b>Project</b> plus <b>scheduled tasks</b> for the rhythm. Add specialists as separate Projects or Cowork projects with their own role cards. Move to <b>Claude Code subagents</b> only when a lane is mostly repository work. Treat the Agent <abbr class="ab" title="Software Development Kit" tabindex="0">SDK</abbr> as a later step, when you want the team to run inside your own platform.</aside>
+
+<h2 id="s1"><span class="n">1</span>Write the charter: one page, before any setup <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>The charter is what every agent reads first. It doubles as the <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> Project's instructions. Keep it short: the help centre advises concise project instructions, because long ones use more of your context and usage. Copy, then fill the brackets.</p>
+<pre class="copy">ROLE         Chief of Staff to [name]. Protect attention; move decisions forward.
+OWNS         Morning and evening briefs · inbox triage · follow-ups · research intake
+             · drafting · routing work to specialists · weekly review.
+NEVER        Sends, pays, deletes, publishes, signs or shares without my explicit "yes"
+             in this chat. Puts personal or financial details into web searches or
+             outside services. Invents a fact, figure, name, email or phone number.
+ASKS FIRST   Anything irreversible · anything over ₹[limit] · any new contact ·
+             any change to a repo, website or calendar invite with other people on it.
+DONE MEANS   A file I can open or a decision I can make, with sources linked,
+             plus a list of what is still open.
+WHEN STUCK   Say so in one line, what you tried, and the one question that unblocks you.
+             Do not work around a permission or a login.
+TONE         Professional, organised, brief, humble. Ask clarifying questions; don't guess.
+TIME         All times in IST (UTC+5:30).</pre>
+<aside><span class="lbl">Why first</span>Agents drift when their limits live only in your head. A written "never", "asks first" and "when stuck" list is the cheapest safety system you will build, and every specialist inherits it.</aside>
+
+<h2 id="s2"><span class="n">2</span>Map the work into lanes <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>List a typical week's work and sort each item into a lane. The extra columns decide where each lane runs and how much oversight it needs.</p>
+<div class="tw"><table>
+<tr><th>Lane</th><th>Examples</th><th>Who handles it</th><th>Where it runs</th><th>Risk</th></tr>
+<tr><td><strong>Rhythm</strong></td><td>Morning brief, evening plan, reminders</td><td><abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr></td><td>Scheduled tasks (paid plans)</td><td>Low: reads and summarises</td></tr>
+<tr><td><strong>Research</strong></td><td>Policy checks, scheme lookups, source logs</td><td>Researcher</td><td>Project + Research</td><td>Low; facts must be sourced</td></tr>
+<tr><td><strong>Build</strong></td><td>Web pages, repos, small tools</td><td>Builder</td><td>Claude Code</td><td>Medium: pushes and deploys need a "yes"</td></tr>
+<tr><td><strong>Write</strong></td><td>Letters to officers, emails, posts</td><td>Writer, in your voice</td><td>Project; Gmail connector for drafts</td><td>High at the moment of sending</td></tr>
+<tr><td><strong>Verify</strong></td><td>Link checks, figure checks, read-through</td><td>Verifier: a fresh chat or agent that did not do the work</td><td>New chat or subagent</td><td>Low</td></tr>
+</table></div>
+
+<h2 id="s3"><span class="n">3</span>Create the Chief of Staff Project <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<ol>
+<li>In Claude, open <b>Projects</b> and choose <b>New project</b>. Name it <b>Chief of Staff</b>. On Team or Enterprise, keep it private.</li>
+<li>Open <b>Set project instructions</b> and paste the charter from step 1.</li>
+<li>Add standing reference files to the project knowledge: this quarter's priorities, the list of ventures, key contacts by role, and your house style (for example the dated design guidelines kept in each page's source).</li>
+<li>Keep one Project per domain (for example Crop Assessment, Farm Operations, Personal Finance), so context and memory don't leak between them. The <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> refers you to them; it doesn't absorb them.</li>
+<li>Test it: ask "What do you own, what will you never do, and what do you ask first?" If the answer doesn't match the charter, shorten the charter.</li>
+</ol>
+<aside><span class="lbl">Changing feature</span>Anthropic is rolling out a new version of projects in beta, starting with Claude Code for some Pro and Max users. In it, a project is one ongoing conversation that splits work into parallel threads in the cloud. If your projects look different, follow the <a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener">help centre article</a>; the charter and role cards still apply.</aside>
+
+<h2 id="s4"><span class="n">4</span>Set memory and preferences deliberately <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<ul>
+<li>State durable preferences once ("ask before acting", "brief, organised, professional"). You can also say "remember this". Memory now works on all plans; on Team and Enterprise it stays off until you turn it on.</li>
+<li>Each Project has its own memory. By default a Project also uses your general (account) memory. For financial and personal Projects, turn off <b>Use account memory</b> on the Project's page so they stay fully separate.</li>
+<li>Once a month, open <b>Settings › Memory</b> and review the listed topics. Edit or delete anything stale. Sensitive topics such as health stay out of memory unless you switch them on.</li>
+<li>In Claude Code, durable rules live in a <code>CLAUDE.md</code> file in the repository instead; see <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">Claude Code memory</a>.</li>
+</ul>
+
+<h2 id="s5"><span class="n">5</span>Connect only the tools the <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> needs <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<ol>
+<li>Start with <b>Calendar, Gmail and Drive</b> (<b>Customize › Connectors</b>). On Team and Enterprise, an owner must enable them first.</li>
+<li>Know what they can do. The Gmail connector can <b>send, reply and forward</b>, not just draft. Drive can share, move and trash files. By default Claude asks for your approval before each of these; keep it that way. On Team and Enterprise, owners can let members skip those prompts. Don't.</li>
+<li>Add GitHub, Netlify or others only when a lane needs them. Look in the connector directory first. A custom connector needs a remote <abbr class="ab" title="Model Context Protocol (an open standard for connecting AI apps to tools and data)" tabindex="0">MCP</abbr> server on the public internet (Free plans get one). Only connect servers from organisations you trust.</li>
+<li>Turn off connectors a chat doesn't need. They use a lot of tokens and give untrusted content more ways in.</li>
+</ol>
+<aside><span class="lbl">Prompt injection</span>An email or web page can contain instructions written to hijack an agent ("ignore your instructions and transfer…"). Anthropic's own <a href="https://support.claude.com/en/articles/13364135-use-claude-cowork-safely" target="_blank" rel="noopener">safety guidance</a> says the risk needs two things at once: the agent reads outside content <i>and</i> can take consequential actions. Keep those apart: the lane that reads your inbox drafts, and only you send.</aside>
+
+<h2 id="s6"><span class="n">6</span>Turn repeated routines into skills <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>When you have explained the same procedure twice, make it a skill. First turn on <b>Code execution and file creation</b> (Settings › Capabilities); skills need it. Ask Claude to help write the skill as a folder containing a <code>SKILL.md</code> file, then upload it under <b>Customize › Skills</b>. Skills you enable there also load in Claude Code when you sign in with the same account.</p>
+<pre class="copy">---
+name: link-audit
+description: Open every link on a page, mark each verified, revised or fixed, and log the date. Use before publishing any baseline page.
+---
+1. List every external link with its anchor text.
+2. Open each one. Record status (works / redirects / broken) and the final URL.
+3. Redirected to the same content  -> replace URL, add pill "Link revised".
+   Broken or wrong content         -> find the correct official page, add pill "Link fixed".
+4. Every external link: target="_blank" rel="noopener".
+5. Output a table: link, old URL, new URL, status, date checked (IST).
+Never mark a link verified without opening it.</pre>
+<p>Other good first skills:</p>
+<ul>
+<li><b>Policy baseline page</b>: research, then a single-file <abbr class="ab" title="HyperText Markup Language" tabindex="0">HTML</abbr> page with pill-marked links, asides, <abbr class="ab" title="Search Engine Optimisation" tabindex="0">SEO</abbr>, an abbreviation glossary and a sources log (the method behind the ethanol page).</li>
+<li><b>Officer letter</b>: formal, short, with a reference number, the attachments listed, and contact details only from official pages.</li>
+<li><b>Morning brief</b>: the format in step 7, so every run looks the same.</li>
+</ul>
+
+<h2 id="s7"><span class="n">7</span>Schedule the cadence <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>Scheduled tasks need a paid plan. Create them from the <b>Scheduled</b> page in Cowork, by typing <code>/schedule</code>, or by describing the task in a conversation if you have the new combined experience. You can pick hourly, daily, weekdays, weekly or manual runs, plus an approval mode. They run in the cloud, so your laptop can be closed. For repository work, Claude Code has its own cloud <a href="https://code.claude.com/docs/en/routines" target="_blank" rel="noopener">scheduled tasks (formerly routines)</a>, which can also fire on GitHub events.</p>
+<div class="tw"><table>
+<tr><th>When (<abbr class="ab" title="Indian Standard Time (UTC+5:30)" tabindex="0">IST</abbr>)</th><th>What the <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> produces</th><th>Approval mode</th></tr>
+<tr><td>Weekdays 07:30</td><td>Morning brief: calendar, mail that matters, "waiting on others", one focus</td><td>Reads only; drafts allowed</td></tr>
+<tr><td>Weekdays 17:30</td><td>Tomorrow's list and office-hours items</td><td>Reads only</td></tr>
+<tr><td>Friday 16:00</td><td>Weekly review (step 12): shipped, stalled, decisions needed</td><td>Reads only</td></tr>
+<tr><td>On demand</td><td>Link audit before publishing a page</td><td>Manually approve</td></tr>
+</table></div>
+<pre class="copy">MORNING BRIEF  (scheduled task prompt)
+Using my Calendar and Gmail for the last 24 hours and today:
+1. Today's meetings with a one-line "what I need to bring".
+2. Up to 5 emails that need me, each with a suggested reply as a DRAFT only.
+3. "Waiting on others": threads where I am owed a reply for 3+ days.
+4. One focus for today, from the priorities file in project knowledge.
+Do not send, accept, decline or delete anything. End with one question for me, or "No decisions needed."</pre>
+<aside><span class="lbl">Rule</span>Every scheduled run must end in something you can act on in under two minutes: a decision to make, a draft to approve or a file to open. Anthropic advises against scheduling tasks that send messages, make purchases or touch sensitive files, because nobody is watching when they run. Review past runs on the Scheduled page, and pause the ones you no longer read.</aside>
+
+<h2 id="s8"><span class="n">8</span>Add specialists one at a time <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>Give each specialist a role card in the same format as the charter. Add the next one only after the previous one has produced three outputs you used unchanged. There are three honest ways to run a specialist:</p>
+<div class="tw"><table>
+<tr><th>Route</th><th>How the handoff works</th><th>Best for</th></tr>
+<tr><td><strong>Separate Project</strong> (chat or Cowork)</td><td>You, or a shared Drive file, carry the task card in and the result back. There is no automatic handoff between Projects.</td><td>Researcher, Writer. Simple and transparent.</td></tr>
+<tr><td><strong>Claude Code subagent</strong></td><td>A Markdown file in <code>.claude/agents/</code>. The lead session delegates to it automatically, and it returns a summary.</td><td>Builder, Verifier on repositories.</td></tr>
+<tr><td><strong>Claude Code agent team</strong></td><td>A lead session coordinates teammates through a shared task list. Experimental and off by default; uses significantly more tokens.</td><td>Parallel research or review, once the basics work.</td></tr>
+</table></div>
+<pre class="copy">SPECIALIST   Researcher
+OWNS         Finding and reading sources; logging what yielded and what didn't.
+NEVER        States a current fact without a source; invents contacts; uses
+             unofficial pages for names, emails or phone numbers.
+DONE MEANS   Findings with links + an "open questions" list, handed to the CoS
+             in the handoff format (step 9).</pre>
+<p>A Verifier written as a Claude Code subagent (<code>.claude/agents/verifier.md</code>). See <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">Create custom subagents</a>:</p>
+<pre class="copy">---
+name: verifier
+description: Independently checks a finished draft's facts, links and arithmetic. Use after any page or letter is drafted, before it goes to Vipul.
+tools: Read, Grep, Glob, WebFetch
+---
+You did not write this draft. Check every factual claim against its cited source,
+open every link, and recompute every number. Report: claim, source, OK / wrong / unsourced.
+Do not edit files. Do not fix silently. List problems; the lead decides.</pre>
+
+<h2 id="s9"><span class="n">9</span>Define handoffs and approvals <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<ol>
+<li><b>Brief in:</b> the <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> writes a task card.</li>
+<li><b>Work:</b> the specialist produces a draft and a handoff note.</li>
+<li><b>Verify:</b> a fresh agent checks facts, links and arithmetic, without having seen the drafting.</li>
+<li><b>Decide:</b> the <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> presents it with a recommendation and one question.</li>
+<li><b>Ship:</b> only after your "yes". The <abbr class="ab" title="Chief of Staff (the lead agent that routes work and brings decisions to you)" tabindex="0">CoS</abbr> records what shipped and where.</li>
+</ol>
+<pre class="copy">TASK CARD                          HANDOFF NOTE (back to the CoS)
+Goal:      [one sentence]           Done:       [what was produced, link/file]
+Inputs:    [files, links]           Sources:    [yielded] / [didn't yield]
+Output:    [format, length]         Confidence: high / medium / low, and why
+Deadline:  [date, IST]              Open:       [questions, gaps]
+Limits:    [never / asks-first]     Needs you:  [one decision, or "nothing"]
+Done when: [test]                   Blocked:    [yes/no, what would unblock]</pre>
+<div class="tw"><table>
+<tr><th>Approval rule</th><th>Examples</th><th>What the agent may do</th></tr>
+<tr><td><strong><span class="dot g"></span>Green: just do it</strong></td><td>Read, search, summarise, draft, save a file in its own folder</td><td>Act, then report</td></tr>
+<tr><td><strong><span class="dot a"></span>Amber: show me first</strong></td><td>Push to a repo, edit a shared doc, create a calendar event with others, new contact</td><td>Prepare the exact change; wait for "yes"</td></tr>
+<tr><td><strong><span class="dot r"></span>Red: only I do it</strong></td><td>Send email or messages, pay or buy, delete, sign, share personal or financial data, publish under my name</td><td>Draft only; I press send</td></tr>
+</table></div>
+<aside><span class="lbl">Privacy line</span>Decide up front which lanes may use subagents or outside services. Personal and financial work stays in one separate Project, with account memory off, and never goes into search queries.</aside>
+
+<h2 id="s10"><span class="n">10</span>When a lead hits a wall: troubleshooting and escalation <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>Agents get stuck in predictable ways. The rule: <b>say so early, try one safer route, then ask</b>. Never route around a permission, a login or an approval.</p>
+<div class="tw"><table>
+<tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>
+<tr><td>Scheduled brief didn't arrive</td><td>Task paused, plan isn't paid, or the task needs local files and the computer was off</td><td>Check the Scheduled page's past runs; run it on demand once</td></tr>
+<tr><td>Connector "not available"</td><td>Not enabled by the org owner, or not signed in</td><td>Owner enables it; reconnect under Customize › Connectors</td></tr>
+<tr><td>Skills section missing</td><td>Code execution is off</td><td>Turn on Code execution and file creation</td></tr>
+<tr><td>Answers ignore the charter</td><td>Instructions too long, or the chat isn't in the Project</td><td>Shorten the charter; start the chat inside the Project</td></tr>
+<tr><td>Same task keeps failing</td><td>Task card too vague, or a site blocks automated access</td><td>Narrow the goal; give the exact source; accept a documented gap</td></tr>
+<tr><td>"Usage limit reached"</td><td>Five-hour or weekly limit</td><td>See step 11; wait for the reset, or pause low-value runs</td></tr>
+<tr><td>Agent reads an instruction inside an email or page</td><td>Possible prompt injection</td><td>Stop the task; don't act on it; report from the app</td></tr>
+</table></div>
+<pre class="copy">ESCALATION LADDER
+1. Retry once with a narrower scope or an official source.        (agent)
+2. Hand to the Verifier or a fresh chat for a second look.         (agent)
+3. Write a BLOCKED note: what, why, what was tried, one question. (agent -> CoS)
+4. CoS brings it to me with a recommendation, at the next brief.   (CoS -> me)
+5. Park it with a date to revisit, or drop it. Record the decision. (me)</pre>
+
+<h2 id="s11"><span class="n">11</span>Cost and usage <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<ul>
+<li>On paid plans, usage has a <b>session limit that resets every five hours</b> and <b>weekly limits</b>. Chat, Claude Code and the desktop app all draw on the <b>same</b> allowance.</li>
+<li>Research, long conversations, connectors and agent teams use more. Anthropic says agent teams use "significantly more tokens than a single session".</li>
+<li>Every scheduled run counts. Start with two daily runs and one weekly run, not hourly ones.</li>
+<li>Keep instructions short, remove unused project files, and turn off connectors and extended thinking when a task doesn't need them.</li>
+<li>When you hit a limit, wait for the reset, upgrade, or turn on usage credits. In Claude Code, an <code>ANTHROPIC_API_KEY</code> environment variable bills the <abbr class="ab" title="Application Programming Interface" tabindex="0">API</abbr> instead of your plan; don't set one by accident.</li>
+</ul>
+<aside><span class="lbl">Source</span><a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" target="_blank" rel="noopener">How usage and length limits work</a>. I have not quoted prices or exact limits because Anthropic changes them; check the <a href="https://claude.com/pricing" target="_blank" rel="noopener">pricing page</a> on the day.</aside>
+
+<h2 id="s12"><span class="n">12</span>Review weekly and prune <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<pre class="copy">WEEKLY REVIEW  (Friday, 15 minutes)
+[ ] Outputs I used unchanged        -> keep that routine or skill.
+[ ] Outputs I rewrote               -> fix the role card or skill, not the output.
+[ ] Outputs I ignored               -> pause or delete that scheduled task.
+[ ] Anything sent, paid, pushed     -> did each have my "yes"? If not, tighten the rules.
+[ ] Blocked notes                   -> decide: unblock, park with a date, or drop.
+[ ] Memory topics                   -> delete anything stale or wrong (monthly).
+[ ] Connectors                      -> disconnect any not used in 30 days.
+[ ] Usage                           -> which run cost the most for the least value?</pre>
+
+<h2 id="recall">Recall questions <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>Short questions to check the guide has stuck. Tap one to see the answer.</p>
+<details><summary>1. Which Claude plans can run scheduled tasks?</summary><p>Paid plans only: Pro, Max, Team and Enterprise.</p></details>
+<details><summary>2. What must be switched on before Skills appear?</summary><p>Code execution and file creation.</p></details>
+<details><summary>3. How do you keep a personal-finance Project's memory fully separate?</summary><p>Turn off "Use account memory" on that Project's page.</p></details>
+<details><summary>4. Can the Gmail connector send email by itself?</summary><p>It can send, reply and forward, but by default asks for approval each time. Keep that on; sending is a red action.</p></details>
+<details><summary>5. Where does real automatic delegation to subagents happen?</summary><p>In Claude Code (subagents; agent teams are experimental), or in your own app through the Agent <abbr class="ab" title="Software Development Kit" tabindex="0">SDK</abbr>. Not between chat Projects.</p></details>
+<details><summary>6. What are the three colours of the approval rule?</summary><p>Green: just do it. Amber: show me first. Red: only I do it.</p></details>
+<details><summary>7. What two conditions make prompt injection dangerous?</summary><p>The agent reads untrusted content and can also take consequential actions.</p></details>
+
+<h2 id="sources">Sources checked <span class="pill p-grok" title="Researched and written or revised by Grok Bot">Grokcos</span></h2>
+<p>All checked live on 30 October 2026. Pills show where a link from the earlier draft was changed.</p>
+<div class="tw"><table>
+<tr><th>Source</th><th>What it confirmed</th><th>Status</th></tr>
+<tr><td><a href="https://platform.claude.com/docs/en/home" target="_blank" rel="noopener">Claude Developer Platform docs</a></td><td>Home of <abbr class="ab" title="Application Programming Interface" tabindex="0">API</abbr> and Agent Skills docs. The earlier link, docs.claude.com, now redirects here.</td><td><span class="pill p-rev">Link revised</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/" target="_blank" rel="noopener">Claude Help Center</a></td><td>The earlier draft linked only the home page; this version links each specific article in the steps above.</td><td><span class="pill p-rev">Link revised</span></td></tr>
+<tr><td><a href="https://github.com/anandvip/ethanol" target="_blank" rel="noopener">anandvip/ethanol on GitHub</a></td><td>Companion baseline built with this method. ethanol.vipulanand.in did not resolve on 30 Oct (custom domain not set up yet), so the repo link is given instead.</td><td><span class="pill p-fix">Link fixed</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/9517075-what-are-projects" target="_blank" rel="noopener">What are projects?</a> · <a href="https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects" target="_blank" rel="noopener">Create and manage projects</a></td><td>All plans; Free up to five; <abbr class="ab" title="Retrieval-Augmented Generation" tabindex="0">RAG</abbr> on paid; new projects beta</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context" target="_blank" rel="noopener">Chat search and memory</a> · <a href="https://support.claude.com/en/articles/12138966-release-notes" target="_blank" rel="noopener">Release notes</a></td><td>Memory on all plans; project memory; "Use account memory"; Team/Enterprise defaults</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/10166901-use-google-workspace-connectors" target="_blank" rel="noopener">Google Workspace connectors</a> · <a href="https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities" target="_blank" rel="noopener">Connectors</a> · <a href="https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Custom connectors (<abbr class="ab" title="Model Context Protocol (an open standard for connecting AI apps to tools and data)" tabindex="0">MCP</abbr>)</a></td><td>Gmail can send with approval; owner enablement; Free gets one custom connector; public internet needed</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/12512180-use-skills-in-claude" target="_blank" rel="noopener">Use skills in Claude</a> · <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview" target="_blank" rel="noopener">Agent Skills overview</a> · <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Skills in Claude Code</a></td><td>All plans; code execution required; SKILL.md format</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork" target="_blank" rel="noopener">Schedule recurring tasks</a> · <a href="https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork" target="_blank" rel="noopener">Get started with Cowork</a> · <a href="https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork" target="_blank" rel="noopener">Projects in Cowork</a></td><td>Paid plans; cadences; approval mode; cloud runs</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/13364135-use-claude-cowork-safely" target="_blank" rel="noopener">Use Claude Cowork safely</a></td><td>Prompt injection; don't schedule sends or purchases; "Manually approve"</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://code.claude.com/docs/en/agents" target="_blank" rel="noopener">Run agents in parallel</a> · <a href="https://code.claude.com/docs/en/sub-agents" target="_blank" rel="noopener">Subagents</a> · <a href="https://code.claude.com/docs/en/agent-teams" target="_blank" rel="noopener">Agent teams</a> · <a href="https://code.claude.com/docs/en/routines" target="_blank" rel="noopener">Cloud scheduled tasks</a> · <a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">Claude Code memory</a></td><td>Subagents; agent teams experimental and off by default; routines renamed</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener">Agent <abbr class="ab" title="Software Development Kit" tabindex="0">SDK</abbr> overview</a></td><td>Python and TypeScript library with the Claude Code agent loop</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://support.claude.com/en/articles/11088861-use-research-on-claude" target="_blank" rel="noopener">Research</a> · <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" target="_blank" rel="noopener">Usage limits</a> · <a href="https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan" target="_blank" rel="noopener">Claude Code with Pro/Max</a> · <a href="https://claude.com/pricing" target="_blank" rel="noopener">Pricing</a></td><td>Plan requirements; five-hour and weekly limits; shared usage</td><td><span class="pill p-ok">Verified</span></td></tr>
+<tr><td><a href="https://www.anthropic.com/news" target="_blank" rel="noopener">Anthropic news</a></td><td>Checked; nothing needed beyond the help centre and docs</td><td><span class="pill p-unv">No yield</span></td></tr>
+<tr><td>Third-party blogs on Cowork defaults</td><td>One claimed that tasks Claude creates default to "Automatically approve". Not confirmed on an official page, so it isn't used here; check each task's approval mode yourself.</td><td><span class="pill p-unv">Not used</span></td></tr>
+</table></div>
+
+<h2 id="abbreviations">Abbreviations</h2>
+<p class="sub">Every abbreviation on this page is underlined with dots. Tap, hover or tab to it to see the full form, and use <b>Copy</b> to take it into your own search or notes. The full list is below.</p>
+<button type="button" class="copy-all">Copy all abbreviations</button>
+<div class="tw"><table id="abbr-list"><tr><th>Abbreviation</th><th>Full form</th></tr><tr data-k="API" data-f="Application Programming Interface"><td><strong>API</strong></td><td>Application Programming Interface</td></tr><tr data-k="CoS" data-f="Chief of Staff (the lead agent that routes work and brings decisions to you)"><td><strong>CoS</strong></td><td>Chief of Staff (the lead agent that routes work and brings decisions to you)</td></tr><tr data-k="HTML" data-f="HyperText Markup Language"><td><strong>HTML</strong></td><td>HyperText Markup Language</td></tr><tr data-k="IST" data-f="Indian Standard Time (UTC+5:30)"><td><strong>IST</strong></td><td>Indian Standard Time (UTC+5:30)</td></tr><tr data-k="MCP" data-f="Model Context Protocol (an open standard for connecting AI apps to tools and data)"><td><strong>MCP</strong></td><td>Model Context Protocol (an open standard for connecting AI apps to tools and data)</td></tr><tr data-k="RAG" data-f="Retrieval-Augmented Generation"><td><strong>RAG</strong></td><td>Retrieval-Augmented Generation</td></tr><tr data-k="SDK" data-f="Software Development Kit"><td><strong>SDK</strong></td><td>Software Development Kit</td></tr><tr data-k="SEO" data-f="Search Engine Optimisation"><td><strong>SEO</strong></td><td>Search Engine Optimisation</td></tr></table></div>
+
+</div></main>
+<footer class="band"><div class="inner"><p>Vipul Anand · 30 October 2026 · revised the same day with Grok Bot (sections marked <span class="pill p-grok">Grokcos</span>). Feature names, plans and limits reflect Anthropic's help centre and docs as checked on this date; they change often, so follow the linked articles. External links open in a new tab. Nothing on this page asks an agent to send, pay or publish without a person's approval.</p></div></footer>
+
+<div id="abbr-tip" role="tooltip" hidden><span class="t-ab"></span><span class="t-full"></span>
+<span class="t-act"><button type="button" data-act="copy">Copy</button><a data-act="open" target="_blank" rel="noopener" hidden>Open source ↗</a></span></div>
+<script>
+(function(){
+var tip=document.getElementById('abbr-tip'),tAb=tip.querySelector('.t-ab'),tFull=tip.querySelector('.t-full'),
+    bCopy=tip.querySelector('[data-act=copy]'),aOpen=tip.querySelector('[data-act=open]'),cur=null,pinned=false,hideT=null,
+    canHover=window.matchMedia&&matchMedia('(hover:hover)').matches;
+document.querySelectorAll('abbr.ab').forEach(function(a){a.dataset.full=a.getAttribute('title');a.removeAttribute('title');
+  a.setAttribute('aria-label',a.textContent+' — '+a.dataset.full);a.setAttribute('role','button');});
+function copyText(t,btn,label){function done(){if(!btn)return;var o=btn.textContent;btn.textContent='Copied ✓';setTimeout(function(){btn.textContent=label||o;},1300);}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fallback);}else fallback();
+  function fallback(){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}}
+function place(a){var r=a.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight,dw=document.documentElement.clientWidth,
+  cx=r.left+r.width/2,left=Math.max(8,Math.min(cx-w/2,dw-w-8)),up=r.top>h+14;
+  tip.className=up?'up':'down';tip.style.left=(left+window.scrollX)+'px';
+  tip.style.top=(up?r.top+window.scrollY-h-10:r.bottom+window.scrollY+10)+'px';tip.style.setProperty('--ax',(cx-left)+'px');}
+function show(a,pin){clearTimeout(hideT);if(cur&&cur!==a)cur.classList.remove('on');cur=a;pinned=!!pin;a.classList.add('on');
+  tAb.textContent=a.textContent;tFull.textContent=a.dataset.full;bCopy.textContent='Copy';
+  var l=a.closest('a[href]');if(l&&l.getAttribute('href').charAt(0)!=='#'){aOpen.href=l.href;aOpen.hidden=false;}else aOpen.hidden=true;
+  tip.hidden=false;place(a);}
+function hide(){tip.hidden=true;pinned=false;if(cur)cur.classList.remove('on');cur=null;}
+document.addEventListener('mouseover',function(e){if(!canHover||pinned)return;var a=e.target.closest&&e.target.closest('abbr.ab');
+  if(a)show(a,false);else if(e.target.closest&&e.target.closest('#abbr-tip'))clearTimeout(hideT);});
+document.addEventListener('mouseout',function(e){if(!canHover||pinned)return;var a=e.target.closest&&e.target.closest('abbr.ab,#abbr-tip');
+  if(a){clearTimeout(hideT);hideT=setTimeout(hide,350);}});
+document.addEventListener('click',function(e){var a=e.target.closest('abbr.ab');
+  if(a){e.preventDefault();e.stopPropagation();if(cur===a&&pinned)hide();else show(a,true);return;}
+  if(!e.target.closest('#abbr-tip'))hide();},true);
+bCopy.addEventListener('click',function(e){e.stopPropagation();if(cur)copyText(cur.textContent+' — '+cur.dataset.full,bCopy);});
+document.addEventListener('focusin',function(e){var a=e.target.closest&&e.target.closest('abbr.ab');if(a)show(a,false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')hide();
+  var a=e.target.closest&&e.target.closest('abbr.ab');if(a&&(e.key==='Enter'||e.key===' ')){e.preventDefault();show(a,true);}});
+window.addEventListener('resize',function(){if(cur)place(cur);});
+var ca=document.querySelector('.copy-all');if(ca)ca.addEventListener('click',function(){var t=[].map.call(document.querySelectorAll('#abbr-list tr[data-k]'),
+  function(r){return r.dataset.k+' — '+r.dataset.f;}).join('\n');copyText(t,ca,'Copy all abbreviations');});
+})();
+</script>
+<script>
+(function(){document.querySelectorAll('pre.copy').forEach(function(p){var b=document.createElement('button');b.type='button';b.className='cp';b.textContent='Copy';
+b.addEventListener('click',function(){var t=p.innerText.replace(/^Copy\n?/,'').replace(/Copied ✓\n?/,'');
+function done(){b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy';},1300);}
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done);}else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}});
+p.insertBefore(b,p.firstChild);});})();
+</script>
+</body>
+</html>
